@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:orientation="horizontal"
+      android:gravity="center_vertical"
+      android:background="@color/dark_bule"
+      >
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/arrow_white_left"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="充值记录"
+        android:layout_marginLeft="20dp"
+        android:textSize="20dp"
+        />
+
+  </LinearLayout>
+
+  <TextView
+      android:id="@+id/card_id"
+      android:layout_width="wrap_content"
+      android:layout_height="30dp"
+      android:gravity="center_vertical"
+      android:layout_gravity="center_vertical"
+      android:textSize="15dp"
+      android:text="卡  号：1238436582"
+      android:layout_marginLeft="15dp"
+      />
+
+  <TextView
+      android:id="@+id/well_id"
+      android:layout_width="wrap_content"
+      android:layout_height="30dp"
+      android:gravity="center_vertical"
+      android:layout_gravity="center_vertical"
+      android:textSize="15dp"
+      android:text="机电井ID：1238436582"
+      android:layout_marginLeft="15dp"
+      />
+
+  <TextView
+      android:id="@+id/den_water"
+      android:layout_width="wrap_content"
+      android:layout_height="30dp"
+      android:gravity="center_vertical"
+      android:layout_gravity="center_vertical"
+      android:textSize="15dp"
+      android:text="定额内水量：1238436582"
+      android:layout_marginLeft="15dp"
+      />
+
+  <TextView
+      android:id="@+id/den_fee"
+      android:layout_width="wrap_content"
+      android:layout_height="30dp"
+      android:gravity="center_vertical"
+      android:layout_gravity="center_vertical"
+      android:textSize="15dp"
+      android:text="定额内费用：1238436582"
+      android:layout_marginLeft="15dp"
+      />
+
+
+  <TextView
+      android:id="@+id/cde_water"
+      android:layout_width="wrap_content"
+      android:layout_height="30dp"
+      android:gravity="center_vertical"
+      android:layout_gravity="center_vertical"
+      android:textSize="15dp"
+      android:text="超定额水量：1238436582"
+      android:layout_marginLeft="15dp"
+      />
+
+
+  <TextView
+      android:id="@+id/cde_fee"
+      android:layout_width="wrap_content"
+      android:layout_height="30dp"
+      android:gravity="center_vertical"
+      android:layout_gravity="center_vertical"
+      android:textSize="15dp"
+      android:text="超定额费用：1238436582"
+      android:layout_marginLeft="15dp"
+      />
+
+  <TextView
+      android:id="@+id/total_water"
+      android:layout_width="wrap_content"
+      android:layout_height="30dp"
+      android:gravity="center_vertical"
+      android:layout_gravity="center_vertical"
+      android:textSize="15dp"
+      android:text="合计水量：1238436582"
+      android:layout_marginLeft="15dp"
+      />
+
+
+  <TextView
+      android:id="@+id/total_fee"
+      android:layout_width="wrap_content"
+      android:layout_height="30dp"
+      android:gravity="center_vertical"
+      android:layout_gravity="center_vertical"
+      android:textSize="15dp"
+      android:text="合计费用：1238436582"
+      android:layout_marginLeft="15dp"
+      />
+
+  <TextView
+      android:id="@+id/use_water"
+      android:layout_width="wrap_content"
+      android:layout_height="30dp"
+      android:gravity="center_vertical"
+      android:layout_gravity="center_vertical"
+      android:textSize="15dp"
+      android:text="累计用水量：1238436582"
+      android:layout_marginLeft="15dp"
+      />
+
+  <TextView
+      android:id="@+id/den_left_water"
+      android:layout_width="wrap_content"
+      android:layout_height="30dp"
+      android:gravity="center_vertical"
+      android:layout_gravity="center_vertical"
+      android:textSize="15dp"
+      android:text="剩余定额水量：1238436582"
+      android:layout_marginLeft="15dp"
+      />
+
+  <TextView
+      android:id="@+id/power"
+      android:layout_width="wrap_content"
+      android:layout_height="30dp"
+      android:gravity="center_vertical"
+      android:layout_gravity="center_vertical"
+      android:textSize="15dp"
+      android:text="电量：1238436582"
+      android:layout_marginLeft="15dp"
+      />
+
+
+  <TextView
+      android:id="@+id/state"
+      android:layout_width="wrap_content"
+      android:layout_height="30dp"
+      android:gravity="center_vertical"
+      android:layout_gravity="center_vertical"
+      android:textSize="15dp"
+      android:text="状  态：正常退水"
+      android:layout_marginLeft="15dp"
+      />
+
+
+  <TextView
+      android:id="@+id/operor"
+      android:layout_width="wrap_content"
+      android:layout_height="30dp"
+      android:gravity="center_vertical"
+      android:layout_gravity="center_vertical"
+      android:textSize="15dp"
+      android:text="操作人：1238436582"
+      android:layout_marginLeft="15dp"
+      />
+
+  <TextView
+      android:id="@+id/operate_time"
+      android:layout_width="wrap_content"
+      android:layout_height="30dp"
+      android:gravity="center_vertical"
+      android:layout_gravity="center_vertical"
+      android:textSize="15dp"
+      android:text="操作时间：1238436582"
+      android:layout_marginLeft="15dp"
+      />
+
+
+</LinearLayout>

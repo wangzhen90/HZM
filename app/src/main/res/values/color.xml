@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="gray">#313131</color>
+  <color name="blue">#1FBAF3</color>
+  <color name="white">#ffffff</color>
+  <color name="dark_bule">#0077C9</color>
+  <color name="light_gray">#CDD7E2</color>
+
+  <drawable name="xtoast_button_normal">@android:color/transparent</drawable>
+  <drawable name="xtoast_button_pressed">#FF737373</drawable>
+
+  <color name="xtoast_text">#FFFFFFFF</color>
+
+</resources>

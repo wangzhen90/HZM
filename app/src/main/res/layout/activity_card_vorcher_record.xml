@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:orientation="horizontal"
+      android:gravity="center_vertical"
+      android:background="@color/dark_bule"
+
+      >
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/arrow_white_left"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="充值记录"
+        android:layout_marginLeft="20dp"
+        android:textSize="20dp"
+
+        />
+
+
+  </LinearLayout>
+
+
+  <android.support.v7.widget.RecyclerView
+      android:id="@+id/vorcher_recyclerview"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+
+      />
+
+</LinearLayout>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    >
+
+    <TextView
+        android:id="@+id/time_line"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+
+        android:text="095月"
+        android:textSize="17dp"
+        android:textColor="#000000"
+        android:gravity="center_horizontal"
+        />
+
+  <android.support.v7.widget.CardView
+      android:id="@+id/content_view"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      app:cardCornerRadius="5dp"
+      app:cardElevation="5dp"
+      app:contentPadding="1dp"
+      android:background="#ffffff"
+      android:layout_margin="10dp"
+      >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+      <TextView
+          android:id="@+id/card_id"
+          android:layout_width="wrap_content"
+          android:layout_height="30dp"
+          android:gravity="center_vertical"
+          android:layout_gravity="center_vertical"
+          android:textSize="15dp"
+          android:text="卡  号：1238436582"
+          android:layout_marginLeft="15dp"
+          />
+
+      <TextView
+          android:id="@+id/operor"
+          android:layout_width="wrap_content"
+          android:layout_height="30dp"
+          android:gravity="center_vertical"
+          android:layout_gravity="center_vertical"
+          android:textSize="15dp"
+          android:text="操作人：1238436582"
+          android:layout_marginLeft="15dp"
+          />
+
+      <TextView
+          android:id="@+id/operate_time"
+          android:layout_width="wrap_content"
+          android:layout_height="30dp"
+          android:gravity="center_vertical"
+          android:layout_gravity="center_vertical"
+          android:textSize="15dp"
+          android:text="操作时间：1238436582"
+          android:layout_marginLeft="15dp"
+          />
+      <TextView
+          android:id="@+id/total_water"
+          android:layout_width="wrap_content"
+          android:layout_height="30dp"
+          android:gravity="center_vertical"
+          android:layout_gravity="center_vertical"
+          android:textSize="15dp"
+          android:text="合计水量：1238436582"
+          android:layout_marginLeft="15dp"
+          />
+
+
+      <TextView
+          android:id="@+id/total_fee"
+          android:layout_width="wrap_content"
+          android:layout_height="30dp"
+          android:gravity="center_vertical"
+          android:layout_gravity="center_vertical"
+          android:textSize="15dp"
+          android:text="合计费用：1238436582"
+          android:layout_marginLeft="15dp"
+          />
+      <TextView
+          android:id="@+id/state"
+          android:layout_width="wrap_content"
+          android:layout_height="30dp"
+          android:gravity="center_vertical"
+          android:layout_gravity="center_vertical"
+          android:textSize="15dp"
+          android:text="状  态：正常退水"
+          android:layout_marginLeft="15dp"
+          />
+    </LinearLayout>
+
+  </android.support.v7.widget.CardView>
+</LinearLayout>
