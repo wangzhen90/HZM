@@ -3,6 +3,8 @@ package com.hengze.hengzemanager.net;
 import com.hengze.hengzemanager.modle.CardVoucherInfo;
 import com.hengze.hengzemanager.modle.UserWrapper;
 import com.hengze.hengzemanager.modle.CardConsumeInfo;
+import com.hengze.hengzemanager.modle.WellDetail;
+
 import java.util.ArrayList;
 import retrofit.Callback;
 import retrofit.http.Body;
@@ -24,5 +26,9 @@ public interface Api {
   //http://118.183.190.176:8082/HzmoFrame/cardID.an?cardID=123  查询充值记录
   @GET("/cardID.an") void queryVorcherByCardID(@Query("cardID") String wellID,
       Callback<ArrayList<CardVoucherInfo>> callback);
+
+//    http://118.183.190.176:8082/HzmoFrame/find.wellan?wellID=0994010101002
+
+    @GET("/find.wellan") void queryWellDetail(@Query("wellID") String wellID,Callback<WellDetail> callback);
 
 }

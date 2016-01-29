@@ -13,4 +13,14 @@
         <attr name="text_size_my" />
     </declare-styleable>
 
+    <declare-styleable name="SegmentLayout">
+        <attr name="sl_corner_radius" format="dimension" />
+        <attr name="sl_border_width" format="dimension" />
+        <attr name="sl_tint_color" format="color" />
+        <attr name="sl_checked_text_color" format="color" />
+
+
+    </declare-styleable>
+
+
 </resources>

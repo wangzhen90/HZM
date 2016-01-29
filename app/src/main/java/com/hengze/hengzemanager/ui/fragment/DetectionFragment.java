@@ -12,9 +12,9 @@ import com.hengze.hengzemanager.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AccountFragment extends Fragment {
+public class DetectionFragment extends Fragment {
 
-  public AccountFragment() {
+  public DetectionFragment() {
     // Required empty public constructor
   }
 

@@ -39,7 +39,16 @@
         app:text_my="查询"
         app:text_size_my="12sp"
         />
-
+      <com.hengze.hengzemanager.ui.widget.ChangeColorIconWithTextView
+          android:id="@+id/maintain"
+          android:layout_width="0dp"
+          android:layout_height="fill_parent"
+          android:layout_weight="1"
+          android:padding="5dp"
+          app:icon_my="@drawable/ic_menu_friendslist"
+          app:text_my="维护"
+          app:text_size_my="12sp"
+          />
     <com.hengze.hengzemanager.ui.widget.ChangeColorIconWithTextView
         android:id="@+id/voucher"
         android:layout_width="0dp"
@@ -52,13 +61,13 @@
         />
 
     <com.hengze.hengzemanager.ui.widget.ChangeColorIconWithTextView
-        android:id="@+id/account"
+        android:id="@+id/detection"
         android:layout_width="0dp"
         android:layout_height="fill_parent"
         android:layout_weight="1"
         android:padding="5dp"
         app:icon_my="@drawable/ic_menu_friendslist"
-        app:text_my="我"
+        app:text_my="监测"
         app:text_size_my="12sp"
         />
 

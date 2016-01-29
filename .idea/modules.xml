@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/HengZeManager.iml" filepath="$PROJECT_DIR$/HengZeManager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HZM.iml" filepath="$PROJECT_DIR$/HZM.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

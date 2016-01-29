@@ -12,7 +12,8 @@ import android.view.ViewConfiguration;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.hengze.hengzemanager.R;
-import com.hengze.hengzemanager.ui.fragment.AccountFragment;
+import com.hengze.hengzemanager.ui.fragment.DetectionFragment;
+import com.hengze.hengzemanager.ui.fragment.MaintainFragment;
 import com.hengze.hengzemanager.ui.fragment.QueryRecordFragement;
 import com.hengze.hengzemanager.ui.fragment.VoucherFragment;
 import com.hengze.hengzemanager.ui.widget.ChangeColorIconWithTextView;
@@ -25,11 +26,13 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
   @Bind(R.id.viewpager) ViewPager viewpager;
   @Bind(R.id.query) ChangeColorIconWithTextView query;
   @Bind(R.id.voucher) ChangeColorIconWithTextView voucher;
-  @Bind(R.id.account) ChangeColorIconWithTextView account;
+  @Bind(R.id.maintain) ChangeColorIconWithTextView maintain;
+  @Bind(R.id.detection) ChangeColorIconWithTextView account;
 
-  QueryRecordFragement queryRecordFragement;
-  VoucherFragment voucherFragment;
-  AccountFragment accountFragment;
+  QueryRecordFragement queryRecordFragement;//查询
+  VoucherFragment voucherFragment;//充值
+  DetectionFragment detectionFragment;//监测
+  MaintainFragment maintainFragment;//维护
   private List<ChangeColorIconWithTextView> mTabIndicator =
       new ArrayList<ChangeColorIconWithTextView>();
 
@@ -74,12 +77,14 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
   private void initTabIndicator() {
 
     mTabIndicator.add(query);
+    mTabIndicator.add(maintain);
     mTabIndicator.add(voucher);
     mTabIndicator.add(account);
 
     query.setOnClickListener(this);
     voucher.setOnClickListener(this);
     account.setOnClickListener(this);
+    maintain.setOnClickListener(this);
 
     query.setIconAlpha(1.0f);
   }
@@ -91,22 +96,34 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         mTabIndicator.get(0).setIconAlpha(1.0f);
         mTabIndicator.get(1).setIconAlpha(0.0f);
         mTabIndicator.get(2).setIconAlpha(0.0f);
+        mTabIndicator.get(3).setIconAlpha(0.0f);
 
         viewpager.setCurrentItem(0, false);
         break;
 
-      case R.id.voucher:
-        mTabIndicator.get(1).setIconAlpha(1.0f);
+      case R.id.maintain:
         mTabIndicator.get(0).setIconAlpha(0.0f);
+        mTabIndicator.get(1).setIconAlpha(1.0f);
         mTabIndicator.get(2).setIconAlpha(0.0f);
+        mTabIndicator.get(3).setIconAlpha(0.0f);
+
         viewpager.setCurrentItem(1, false);
         break;
 
-      case R.id.account:
-        mTabIndicator.get(2).setIconAlpha(1.0f);
+      case R.id.voucher:
         mTabIndicator.get(0).setIconAlpha(0.0f);
         mTabIndicator.get(1).setIconAlpha(0.0f);
+        mTabIndicator.get(2).setIconAlpha(1.0f);
+        mTabIndicator.get(3).setIconAlpha(0.0f);
         viewpager.setCurrentItem(2, false);
+        break;
+
+      case R.id.detection:
+        mTabIndicator.get(0).setIconAlpha(0.0f);
+        mTabIndicator.get(1).setIconAlpha(0.0f);
+        mTabIndicator.get(2).setIconAlpha(0.0f);
+        mTabIndicator.get(3).setIconAlpha(1.0f);
+        viewpager.setCurrentItem(3, false);
         break;
     }
   }
@@ -118,7 +135,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
       super(manager);
     }
 
-    private final String[] titles = { "选项一", "选项二", "选项三" };
+    private final String[] titles = { "查询", "维护", "充值","监测" };
 
     @Override public CharSequence getPageTitle(int position) {
       return titles[position];
@@ -134,17 +151,22 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
           if (queryRecordFragement == null) queryRecordFragement = new QueryRecordFragement();
 
           return queryRecordFragement;
-
         case 1:
+
+          if (maintainFragment == null) maintainFragment = new MaintainFragment();
+          return maintainFragment;
+        case 2:
 
           if (voucherFragment == null) voucherFragment = new VoucherFragment();
 
           return voucherFragment;
 
-        case 2:
+        case 3:
 
-          if (accountFragment == null) accountFragment = new AccountFragment();
-          return accountFragment;
+          if (detectionFragment == null) detectionFragment = new DetectionFragment();
+          return detectionFragment;
+
+
       }
 
       return null;
