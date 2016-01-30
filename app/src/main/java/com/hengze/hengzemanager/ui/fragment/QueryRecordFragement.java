@@ -71,6 +71,12 @@ public class QueryRecordFragement extends Fragment implements View.OnClickListen
             new Callback<ArrayList<CardConsumeInfo>>() {
               @Override
               public void success(ArrayList<CardConsumeInfo> cardConsumeInfos, Response response) {
+                if(cardConsumeInfos == null || cardConsumeInfos.size() == 0){
+
+                  ToastUtils.showToast("未查询到数据");
+                  return;
+                }
+
                 Log.e(TAG, "查询用水量成功,status:" + cardConsumeInfos.size());
                 waterWellId.setText("");
                 toConsumeInfoDetail(cardConsumeInfos);
@@ -97,6 +103,11 @@ public class QueryRecordFragement extends Fragment implements View.OnClickListen
               @Override
               public void success(ArrayList<CardVoucherInfo> cardVoucherInfos, Response response) {
                 Log.e(TAG, "查询充值记录成功,status:" + cardVoucherInfos.size());
+                if(cardVoucherInfos == null || cardVoucherInfos.size() == 0){
+
+                  ToastUtils.showToast("未查询到数据");
+                  return;
+                }
                 toVoucherInfoDetail(cardVoucherInfos);
               }
 

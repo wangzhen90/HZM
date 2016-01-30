@@ -11,9 +11,16 @@ import android.view.View;
 import android.view.Window;
 
 import com.hengze.hengzemanager.R;
+import com.hengze.hengzemanager.ui.fragment.MaintainAddFragment;
+import com.hengze.hengzemanager.ui.fragment.MaintainModifyFragment;
 
 public class MaintainActivity extends FragmentActivity {
     FragmentManager manager;
+    MaintainAddFragment addFragment;
+    MaintainModifyFragment modifyFragment;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

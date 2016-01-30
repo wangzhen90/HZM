@@ -15,6 +15,7 @@ import com.hengze.hengzemanager.R;
 public class MaintainQueryFragment extends Fragment {
 
 
+
     public MaintainQueryFragment() {
         // Required empty public constructor
     }
