@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.hengze.hengzemanager.R;
@@ -208,6 +209,28 @@ public class SegmentLayout extends RadioGroup {
             setChildRadii(newChildren, newChild);
             return radii;
         }
+    }
+
+
+    public void setChecked(int index){
+        for(int i = 0; i < getChildCount(); i++){
+            RadioButton child = (RadioButton) getChildAt(i);
+            if(i != index){
+                if(child != null){
+                    child.setChecked(false);
+                }
+            }else {
+
+                if(child != null){
+                    child.setChecked(true);
+                }
+
+            }
+
+
+        }
+
+        update();
     }
 
 }

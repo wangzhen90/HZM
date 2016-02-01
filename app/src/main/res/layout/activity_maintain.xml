@@ -39,6 +39,7 @@
     </android.support.v7.widget.Toolbar>
 
     <com.hengze.hengzemanager.ui.widget.SegmentLayout
+        android:id="@+id/segment_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -82,8 +83,8 @@
     </com.hengze.hengzemanager.ui.widget.SegmentLayout>
 
 
-    <FrameLayout
-        android:id="@+id/content"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
