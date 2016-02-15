@@ -7,4 +7,7 @@ public class Constant {
 
   public static final String CARD_CONSUME_INFO = "card_consume_info";
   public static final String CARD_VOUCHER_INFO = "card_consume_info";
+  public static final String MAINTAIN_QUERY_DATA = "maintain_query_data";
+
+
 }

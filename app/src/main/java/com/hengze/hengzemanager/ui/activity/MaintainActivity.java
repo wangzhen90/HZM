@@ -11,7 +11,9 @@ import android.view.Window;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 
+import com.hengze.hengzemanager.Constant;
 import com.hengze.hengzemanager.R;
+import com.hengze.hengzemanager.modle.WellDetail;
 import com.hengze.hengzemanager.ui.fragment.MaintainAddFragment;
 import com.hengze.hengzemanager.ui.fragment.MaintainDeleteFragment;
 import com.hengze.hengzemanager.ui.fragment.MaintainModifyFragment;
@@ -41,7 +43,7 @@ public class MaintainActivity extends FragmentActivity implements View.OnClickLi
     SegmentLayout segmentLayout;
     @Bind(R.id.viewpager)
     ViewPager viewpager;
-
+    WellDetail detail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +51,7 @@ public class MaintainActivity extends FragmentActivity implements View.OnClickLi
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_maintain);
         ButterKnife.bind(this);
-
+        getData();
         manager = getSupportFragmentManager();
         initOnclick();
         viewpager.setAdapter(new MaintainAdapter(manager));
@@ -81,6 +83,14 @@ public class MaintainActivity extends FragmentActivity implements View.OnClickLi
         });
 
     }
+
+
+    void getData(){
+        detail = (WellDetail) getIntent().getSerializableExtra(Constant.MAINTAIN_QUERY_DATA);
+
+
+    }
+
 
     @Override
     public void onClick(View v) {
@@ -125,6 +135,9 @@ public class MaintainActivity extends FragmentActivity implements View.OnClickLi
                 case 0:
                     if (queryFragment == null) {
                         queryFragment = new MaintainQueryFragment();
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable(Constant.MAINTAIN_QUERY_DATA,detail);
+                        queryFragment.setArguments(bundle);
                     }
                     return queryFragment;
                 case 1:

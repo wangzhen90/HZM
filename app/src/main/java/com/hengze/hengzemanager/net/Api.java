@@ -1,5 +1,6 @@
 package com.hengze.hengzemanager.net;
 
+import com.hengze.hengzemanager.modle.AddressNode;
 import com.hengze.hengzemanager.modle.CardVoucherInfo;
 import com.hengze.hengzemanager.modle.UserWrapper;
 import com.hengze.hengzemanager.modle.CardConsumeInfo;
@@ -29,6 +30,10 @@ public interface Api {
 
 //    http://118.183.190.176:8082/HzmoFrame/find.wellan?wellID=0994010101002
 
-    @GET("/find.wellan") void queryWellDetail(@Query("wellID") String wellID,Callback<WellDetail> callback);
+    @GET("/find.wellan") void queryWellDetail(@Query("wellID") String wellID,Callback<ArrayList<WellDetail>> callback);
+
+    //http://118.183.190.176:8082/HzmoFrame/org.wellan
+    @GET("/org.wellan") void queryAddress(Callback<ArrayList<AddressNode>> callback);
+
 
 }

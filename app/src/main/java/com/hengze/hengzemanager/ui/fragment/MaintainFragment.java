@@ -12,11 +12,14 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.hengze.hengzemanager.Constant;
 import com.hengze.hengzemanager.R;
 import com.hengze.hengzemanager.Utils.ToastUtils;
 import com.hengze.hengzemanager.modle.WellDetail;
 import com.hengze.hengzemanager.net.ApiClient;
 import com.hengze.hengzemanager.ui.activity.MaintainActivity;
+
+import java.util.ArrayList;
 
 import retrofit.Callback;
 import retrofit.RetrofitError;
@@ -60,17 +63,19 @@ public class MaintainFragment extends Fragment implements View.OnClickListener {
 
             case R.id.query:
 
-                toDetailPage(null);
+
                 String wellID = well_id.getText().toString().trim();
                 if (TextUtils.isEmpty(wellID)) {
                     ToastUtils.showToast("请输入机井编号");
                     return;
                 }
                 ApiClient apiClient = ApiClient.get();
-                apiClient.api.queryWellDetail(wellID, new Callback<WellDetail>() {
+                apiClient.api.queryWellDetail(wellID, new Callback<ArrayList<WellDetail>>() {
                     @Override
-                    public void success(WellDetail wellDetail, Response response) {
+                    public void success(ArrayList<WellDetail> wellDetails, Response response) {
                         Log.e("ApiClient", "queryWellDetail succ");
+                        if(wellDetails != null && wellDetails.size() >0)
+                        toDetailPage(wellDetails.get(0));
                     }
 
                     @Override
@@ -87,6 +92,7 @@ public class MaintainFragment extends Fragment implements View.OnClickListener {
 
     void toDetailPage(WellDetail detail) {
         Intent intent = new Intent(getActivity(), MaintainActivity.class);
+        intent.putExtra(Constant.MAINTAIN_QUERY_DATA,detail);
 
 
         getActivity().startActivity(intent);

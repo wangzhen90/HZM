@@ -1,13 +1,37 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
     tools:context="com.hengze.hengzemanager.ui.fragment.MaintainQueryFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="query" />
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="5dp"
+    app:contentPadding="1dp"
+    android:layout_margin="10dp">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/result_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="管理员: \n电   话: \n机井编号: \n设备号: \nDTU编号: \n机井名称: \n经   度: \n纬   度: \n创建时间: \nQSXKZH: \n 机井深度: \n水   深: \n水泵功率: \n水   质: \n单位出水量: \n单位功耗: \n年度水表底数: \n网络状态: \nsim卡号: \n别   名："
+            android:padding="15dp"/>
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ahah"
+            android:paddingTop="15dp"/>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
 </FrameLayout>

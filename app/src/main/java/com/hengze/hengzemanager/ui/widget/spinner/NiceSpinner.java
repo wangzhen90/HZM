@@ -176,15 +176,16 @@ public class NiceSpinner extends TextView {
         if (!mHideArrow) {
             Drawable basicDrawable = ContextCompat.getDrawable(context, R.drawable.arrow_ani);
             int resId = typedArray.getColor(R.styleable.NiceSpinner_arrowTint, -1);
-
+            int size = (int) getTextSize();
             if (basicDrawable != null) {
                 mDrawable = DrawableCompat.wrap(basicDrawable);
-
+                mDrawable.setBounds(0,0,size * 2,size *2);
                 if (resId != -1) {
                     DrawableCompat.setTint(mDrawable, resId);
                 }
             }
-            setCompoundDrawablesWithIntrinsicBounds(null, null, mDrawable, null);
+//            setCompoundDrawablesWithIntrinsicBounds(null, null, mDrawable, null);
+            setCompoundDrawables(null, null, mDrawable, null);
         }
 
         typedArray.recycle();
@@ -221,6 +222,9 @@ public class NiceSpinner extends TextView {
 
     public <T> void attachDataSource(@NonNull List<T> dataset) {
         mAdapter = new NiceSpinnerAdapter<>(getContext(), dataset);
+        //限制pop的高度
+
+
         setAdapterInternal(mAdapter);
     }
 
