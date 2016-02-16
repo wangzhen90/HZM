@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.hengze.hengzemanager.R;
+import com.hengze.hengzemanager.modle.AddressNode;
 
 /**
  * @author angelo.marchesin
@@ -41,7 +42,12 @@ public abstract class NiceSpinnerBaseAdapter<T> extends BaseAdapter {
             textView = ((ViewHolder) convertView.getTag()).textView;
         }
 
-        textView.setText(getItem(position).toString());
+        T item = getItem(position);
+        if(item instanceof AddressNode){
+            textView.setText(((AddressNode)item).name);
+        }else {
+            textView.setText(getItem(position).toString());
+        }
 
         return convertView;
     }

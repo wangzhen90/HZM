@@ -25,6 +25,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.hengze.hengzemanager.R;
+import com.hengze.hengzemanager.modle.AddressNode;
 
 import java.util.List;
 
@@ -40,7 +41,7 @@ public class NiceSpinner extends TextView {
     private static final String SELECTED_INDEX = "selected_index";
     private static final String IS_POPUP_SHOWING = "is_popup_showing";
 
-    private int mSelectedIndex;
+    public int mSelectedIndex;
     private Drawable mDrawable;
     private PopupWindow mPopup;
     private ListView mListView;
@@ -86,8 +87,12 @@ public class NiceSpinner extends TextView {
 
             mSelectedIndex = bundle.getInt(SELECTED_INDEX);
 
+
             if (mAdapter != null) {
-                setText(mAdapter.getItemInDataset(mSelectedIndex).toString());
+
+
+
+                setText( getName(mAdapter.getItemInDataset(mSelectedIndex)));
                 mAdapter.notifyItemSelected(mSelectedIndex);
             }
 
@@ -146,7 +151,7 @@ public class NiceSpinner extends TextView {
                 }
 
                 mAdapter.notifyItemSelected(position);
-                setText(mAdapter.getItemInDataset(position).toString());
+                setText(getName(mAdapter.getItemInDataset(position)));
                 dismissDropDown();
             }
         });
@@ -205,7 +210,7 @@ public class NiceSpinner extends TextView {
             if (position >= 0 && position <= mAdapter.getCount()) {
                 mAdapter.notifyItemSelected(position);
                 mSelectedIndex = position;
-                setText(mAdapter.getItemInDataset(position).toString());
+                setText(getName(mAdapter.getItemInDataset(position)));
             } else {
                 throw new IllegalArgumentException("Position must be lower than adapter count!");
             }
@@ -220,7 +225,7 @@ public class NiceSpinner extends TextView {
         mOnItemSelectedListener = onItemSelectedListener;
     }
 
-    public <T> void attachDataSource(@NonNull List<T> dataset) {
+    public <AddressNode> void attachDataSource(@NonNull List<AddressNode> dataset) {
         mAdapter = new NiceSpinnerAdapter<>(getContext(), dataset);
         //限制pop的高度
 
@@ -235,7 +240,7 @@ public class NiceSpinner extends TextView {
 
     private void setAdapterInternal(@NonNull NiceSpinnerBaseAdapter adapter) {
         mListView.setAdapter(adapter);
-        setText(adapter.getItemInDataset(mSelectedIndex).toString());
+        setText(getName(adapter.getItemInDataset(mSelectedIndex)));
     }
 
     @Override
@@ -285,4 +290,15 @@ public class NiceSpinner extends TextView {
             DrawableCompat.setTint(mDrawable, getResources().getColor(resId));
         }
     }
+
+    public String getName(Object obj){
+
+        if(obj instanceof AddressNode){
+            return ((AddressNode) obj).name;
+        }else {
+            obj.toString();
+        }
+        return obj.toString();
+    }
+
 }
