@@ -1,13 +1,65 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.hengze.hengzemanager.ui.fragment.MaintainDeleteFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="delete" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17dp"
+            android:text="机井编号：" />
+        <EditText
+            android:id="@+id/delete_well_id"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:hint="00000999"
+            android:gravity="center_horizontal"
+            />
 
-</FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="30dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17dp"
+            android:text="机井名称：" />
+        <EditText
+            android:id="@+id/delete_well_name"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:hint="00000999"
+            android:gravity="center_horizontal"
+
+            />
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/delete_well_info"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:text="立即删除"
+        android:textSize="15dp"
+        android:gravity="center"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="10dp"
+        android:background="@color/blue"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="10dp"
+        />
+
+</LinearLayout>

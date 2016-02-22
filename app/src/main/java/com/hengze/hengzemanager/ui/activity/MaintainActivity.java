@@ -146,13 +146,21 @@ public class MaintainActivity extends FragmentActivity implements View.OnClickLi
                     }
                     return addFragment;
                 case 2:
+
                     if (modifyFragment == null) {
                         modifyFragment = new MaintainModifyFragment();
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable(Constant.MAINTAIN_QUERY_DATA,detail);
+                        modifyFragment.setArguments(bundle);
                     }
                     return modifyFragment;
                 case 3:
                     if (deleteFragment == null) {
                         deleteFragment = new MaintainDeleteFragment();
+                        Bundle bundle = new Bundle();
+                        bundle.putString(Constant.WELL_ID,detail.wellID);
+                        bundle.putString(Constant.WELL_NAME,detail.wellName);
+                        deleteFragment.setArguments(bundle);
                     }
                     return deleteFragment;
             }

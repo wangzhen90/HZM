@@ -74,8 +74,9 @@ public class MaintainFragment extends Fragment implements View.OnClickListener {
                     @Override
                     public void success(ArrayList<WellDetail> wellDetails, Response response) {
                         Log.e("ApiClient", "queryWellDetail succ");
-                        if(wellDetails != null && wellDetails.size() >0)
-                        toDetailPage(wellDetails.get(0));
+                        if(wellDetails != null && wellDetails.size() >0){
+                            toDetailPage(wellDetails.get(0));
+                        }
                     }
 
                     @Override
