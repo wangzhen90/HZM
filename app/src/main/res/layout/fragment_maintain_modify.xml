@@ -1,13 +1,575 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hengze.hengzemanager.ui.fragment.MaintainModifyFragment">
+    >
+
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      tools:context="com.hengze.hengzemanager.ui.fragment.MaintainModifyFragment"
+      >
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="modify" />
 
-</FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="20dp"
+        >
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="20dp"
+          android:textSize="16dp"
+          android:text="机井编号:"
+          android:paddingTop="2dp"
+          />
+
+      <EditText
+          android:id="@+id/wellID"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp"
+          android:paddingLeft="10dp"
+          android:textSize="14.5dp"
+          />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        android:layout_gravity="center_vertical"
+        >
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="20dp"
+          android:textSize="16dp"
+          android:text="设  备  号:"
+
+          />
+
+      <EditText
+          android:id="@+id/devID"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp"
+          android:paddingLeft="10dp"
+          android:text="zhfldsjfldsj"
+          android:textSize="14.5dp"
+          />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="20dp"
+          android:textSize="16dp"
+          android:text="DTU 编号:"
+
+          />
+
+      <EditText
+          android:id="@+id/cezhanID"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp"
+          android:paddingLeft="10dp"
+          android:textSize="14.5dp"
+          />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="20dp"
+          android:textSize="16dp"
+          android:text="机井名称:"
+          />
+
+      <EditText
+          android:id="@+id/wellName"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp"
+          android:textSize="14.5dp"
+          android:paddingLeft="10dp"
+          />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="20dp"
+          android:textSize="16dp"
+          android:text="经        度:"
+          />
+
+      <EditText
+          android:id="@+id/lon"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp"
+          android:paddingLeft="10dp"
+          android:textSize="14.5dp"
+          />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="20dp"
+          android:textSize="16dp"
+          android:text="纬        度:"
+          />
+
+      <EditText
+          android:id="@+id/lat"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp"
+          android:paddingLeft="10dp"
+          android:textSize="14.5dp"
+          />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="20dp"
+          android:textSize="16dp"
+          android:text="创建时间:"
+          />
+
+      <EditText
+          android:id="@+id/buildYear"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp"
+          android:paddingLeft="10dp"
+          android:textSize="14.5dp"
+          />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="20dp"
+          android:textSize="16dp"
+          android:text="QSXKZH:"
+          />
+
+      <EditText
+          android:id="@+id/qsxkzh"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp"
+          android:paddingLeft="10dp"
+          android:textSize="14.5dp"
+          />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="20dp"
+          android:textSize="16dp"
+          android:text="机井深度:"
+          />
+
+      <EditText
+          android:id="@+id/wellDeep"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp"
+          android:paddingLeft="10dp"
+          android:textSize="14.5dp"
+          android:inputType="numberDecimal"
+          />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="20dp"
+          android:textSize="16dp"
+          android:text="水        深:"
+          />
+
+      <EditText
+          android:id="@+id/waterDeep"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp"
+          android:paddingLeft="10dp"
+          android:textSize="14.5dp"
+          android:inputType="numberDecimal"
+          />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="20dp"
+          android:textSize="16dp"
+          android:text="水泵功率:"
+          />
+
+      <EditText
+          android:id="@+id/pumpPower"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp"
+          android:paddingLeft="10dp"
+          android:textSize="14.5dp"
+          android:inputType="number"
+          />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="20dp"
+          android:textSize="16dp"
+          android:text="水        质:"
+          />
+
+      <EditText
+          android:id="@+id/waterQuality"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp"
+          android:paddingLeft="10dp"
+          android:textSize="14.5dp"
+          />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="20dp"
+          android:textSize="13dp"
+          android:text="单位出水量:"
+          />
+
+      <EditText
+          android:id="@+id/perWtOut"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp"
+          android:paddingLeft="10dp"
+          android:textSize="14.5dp"
+          android:inputType="numberDecimal"
+          />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="bottom"
+        >
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="20dp"
+          android:textSize="16dp"
+          android:text="单位功耗:"
+          />
+
+      <EditText
+          android:id="@+id/perEleOut"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp"
+          android:paddingLeft="10dp"
+          android:textSize="14.5dp"
+          android:inputType="numberDecimal"
+          />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="bottom"
+        >
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="20dp"
+          android:textSize="12dp"
+          android:text="年度水底表数:"
+          />
+
+      <EditText
+          android:id="@+id/yearNumber"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp"
+          android:paddingLeft="10dp"
+          android:textSize="14.5dp"
+          android:inputType="number"
+          />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="20dp"
+          android:textSize="16dp"
+          android:text="网络状态:"
+          />
+
+      <EditText
+          android:id="@+id/netType"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp"
+          android:paddingLeft="10dp"
+          android:textSize="14.5dp"
+          />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="20dp"
+          android:textSize="16dp"
+          android:text="SIM 卡号:"
+          />
+
+      <EditText
+          android:id="@+id/simID"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp"
+          android:paddingLeft="10dp"
+          android:textSize="14.5dp"
+          />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="20dp"
+          android:textSize="16dp"
+          android:text="别        名:"
+          />
+
+      <EditText
+          android:id="@+id/remark"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp"
+          android:paddingLeft="10dp"
+          android:textSize="14.5dp"
+          />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="20dp"
+          android:textSize="16dp"
+          android:text="管  理  员:"
+          />
+
+      <EditText
+          android:id="@+id/managerName"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp"
+          android:paddingLeft="10dp"
+          android:textSize="14.5dp"
+          />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="20dp"
+          android:textSize="16dp"
+          android:text="电        话:"
+          />
+
+      <EditText
+          android:id="@+id/managerTel"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp"
+          android:paddingLeft="10dp"
+          android:textSize="14.5dp"
+          />
+
+    </LinearLayout>
+
+
+  </LinearLayout>
+
+</ScrollView>
