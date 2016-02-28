@@ -37,6 +37,9 @@ public interface Api {
 
   //http提交地址:118.183.190.176:8082/HzmoFrame/del.wellan
     @GET("/del.wellan") void deleteWell(@Query("wellID") String wellID,Callback<String> callback);
+  //http提交地址:118.183.190.176:8082/HzmoFrame/add.wellan
+  @GET("/del.wellan") void addWell(@Query("wellID") String wellID,Callback<String> callback);
+
 
 
 }

@@ -96,7 +96,7 @@ public class MaintainModifyFragment extends Fragment {
     wellInfo.lat = Double.valueOf(wellName.getText().toString());
     wellInfo.lnt = Double.valueOf(wellName.getText().toString());
     //wellInfo.buildYear = wellName.getText().toString();
-   
+
 
     wellInfo.qsxkzh = wellName.getText().toString();
     wellInfo.wellDeep = Double.valueOf(wellName.getText().toString());
