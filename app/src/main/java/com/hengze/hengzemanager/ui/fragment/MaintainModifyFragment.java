@@ -135,7 +135,7 @@ public class MaintainModifyFragment extends Fragment {
     wellID.setFocusable(false);
     lat.setText(info.lat + "");
     wellID.setFocusable(false);
-    //buildYear.setText(info.buildYear != null ? info.buildYear.getTime() + "" : "");
+    buildYear.setText(info.buildYear);
     qsxkzh.setText(info.qsxkzh);
     wellDeep.setText(info.wellDeep + "");
     waterDeep.setText(info.waterDeep + "");

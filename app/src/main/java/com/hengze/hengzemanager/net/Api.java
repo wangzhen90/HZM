@@ -7,8 +7,10 @@ import com.hengze.hengzemanager.modle.CardConsumeInfo;
 import com.hengze.hengzemanager.modle.WellDetail;
 
 import java.util.ArrayList;
+
 import retrofit.Callback;
 import retrofit.http.Body;
+import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
 import retrofit.http.GET;
 import retrofit.http.POST;
@@ -45,5 +47,12 @@ public interface Api {
   @GET("/add.wellan") void addWell(@Query("wellID") String wellID, Callback<String> callback);
 
   @POST("/add.wellan") void addWellInfo(@Body() WellDetail wellDetail,
+      Callback<WellDetail> callback);
+
+  //118.183.190.176:8082/HzmoFrame/modify.wellan
+  @POST("/modify.wellan") void testUpdate(@Body WellDetail wellDetail,
+      Callback<WellDetail> callback);
+
+  @FormUrlEncoded @POST("/modify.wellan") void testUpdate2(@Field("wellName") String wellName,
       Callback<WellDetail> callback);
 }

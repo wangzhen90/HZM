@@ -11,11 +11,17 @@ import android.widget.TextView;
 import com.hengze.hengzemanager.Constant;
 import com.hengze.hengzemanager.R;
 import com.hengze.hengzemanager.modle.WellDetail;
+import com.hengze.hengzemanager.net.ApiClient;
+
+import android.util.Log;
 
 import java.util.Date;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -48,10 +54,10 @@ public class MaintainQueryFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         StringBuilder stringBuilder = new StringBuilder();
-        detail = (WellDetail)getArguments().getSerializable(Constant.MAINTAIN_QUERY_DATA);
+        detail = (WellDetail) getArguments().getSerializable(Constant.MAINTAIN_QUERY_DATA);
 
 
-        if(detail != null){
+        if (detail != null) {
             stringBuilder.append(detail.managerName + "\n");
             stringBuilder.append(detail.managerTel + "\n");
             stringBuilder.append(detail.wellID + "\n");//机井名称
@@ -60,8 +66,7 @@ public class MaintainQueryFragment extends Fragment {
             stringBuilder.append(detail.wellName + "\n");//机井名称
             stringBuilder.append(detail.lat + "\n");//经度
             stringBuilder.append(detail.lnt + "\n");//纬度
-            //(detail.buildYear!= null ? detail.buildYear.getTime() : "") TODO
-            stringBuilder.append(  "\n");//创建时间
+            stringBuilder.append(detail.buildYear + "\n");//创建时间
             stringBuilder.append(detail.qsxkzh + "\n");//
             stringBuilder.append(detail.wellDeep + "\n");//机井深度
             stringBuilder.append(detail.waterDeep + "\n");//水深度
@@ -75,7 +80,13 @@ public class MaintainQueryFragment extends Fragment {
             stringBuilder.append(detail.remark + "\n");
 
             result.setText(stringBuilder);
-
+            resultTag.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+//                    testWellUpdate(detail);
+                    testWellUpdate2(detail);
+                }
+            });
 
         }
 
@@ -85,5 +96,40 @@ public class MaintainQueryFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         ButterKnife.unbind(this);
+    }
+
+    void testWellUpdate(WellDetail wellDetail) {
+        wellDetail.wellName = "这是测试";
+        ApiClient apiClient = ApiClient.get();
+        apiClient.api.testUpdate(detail, new Callback<WellDetail>() {
+            @Override
+            public void success(WellDetail wellDetail, Response response) {
+                Log.e("update", "update succ" + wellDetail.wellName);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.e("update", "update failed,error" + error.getMessage() + ",kind:" + error.getKind());
+            }
+        });
+
+    }
+
+    void testWellUpdate2(WellDetail wellDetail) {
+
+        wellDetail.wellName = "这是测试啊啊啊";
+        ApiClient apiClient = ApiClient.get();
+        apiClient.api.testUpdate2(wellDetail.wellName,new Callback<WellDetail>() {
+            @Override
+            public void success(WellDetail wellDetail, Response response) {
+                Log.e("update2", "update2 succ" + wellDetail.wellName);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.e("update2", "update2 failed,error" + error.getMessage() + ",kind:" + error.getKind());
+            }
+        });
+
     }
 }
