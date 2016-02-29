@@ -13,7 +13,7 @@ public class WellDetail implements Serializable{
     public String wellName;//机井名称
     public Double lat;//经度
     public Double lnt;//纬度
-    public Date buildYear;//创建时间
+    //public Date buildYear;//创建时间
     public String qsxkzh;//
     public Double wellDeep;//机井深度
     public Double waterDeep;//

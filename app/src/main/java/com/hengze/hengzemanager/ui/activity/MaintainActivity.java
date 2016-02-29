@@ -24,155 +24,143 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MaintainActivity extends FragmentActivity implements View.OnClickListener {
-    FragmentManager manager;
-    MaintainAddFragment addFragment;
-    MaintainModifyFragment modifyFragment;
-    MaintainDeleteFragment deleteFragment;
-    MaintainQueryFragment queryFragment;
-    @Bind(R.id.back)
-    ImageView back;
-    @Bind(R.id.query)
-    RadioButton query;
-    @Bind(R.id.add)
-    RadioButton add;
-    @Bind(R.id.modify)
-    RadioButton modify;
-    @Bind(R.id.delete)
-    RadioButton delete;
-    @Bind(R.id.segment_layout)
-    SegmentLayout segmentLayout;
-    @Bind(R.id.viewpager)
-    ViewPager viewpager;
-    WellDetail detail;
+  FragmentManager manager;
+  MaintainAddFragment addFragment;
+  MaintainModifyFragment modifyFragment;
+  MaintainDeleteFragment deleteFragment;
+  MaintainQueryFragment queryFragment;
+  @Bind(R.id.back) ImageView back;
+  @Bind(R.id.query) RadioButton query;
+  @Bind(R.id.add) RadioButton add;
+  @Bind(R.id.modify) RadioButton modify;
+  @Bind(R.id.delete) RadioButton delete;
+  @Bind(R.id.segment_layout) SegmentLayout segmentLayout;
+  @Bind(R.id.viewpager) ViewPager viewpager;
+  WellDetail detail;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_maintain);
-        ButterKnife.bind(this);
-        getData();
-        manager = getSupportFragmentManager();
-        initOnclick();
-        viewpager.setAdapter(new MaintainAdapter(manager));
+  @Override protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    requestWindowFeature(Window.FEATURE_NO_TITLE);
+    setContentView(R.layout.activity_maintain);
+    ButterKnife.bind(this);
+    getData();
+    manager = getSupportFragmentManager();
+    initOnclick();
+    viewpager.setAdapter(new MaintainAdapter(manager));
+  }
+
+  private void initOnclick() {
+
+    back.setOnClickListener(this);
+    query.setOnClickListener(this);
+    add.setOnClickListener(this);
+    delete.setOnClickListener(this);
+    modify.setOnClickListener(this);
+
+    viewpager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+      @Override
+      public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+      }
+
+      @Override public void onPageSelected(int position) {
+        segmentLayout.setChecked(position);
+      }
+
+      @Override public void onPageScrollStateChanged(int state) {
+
+      }
+    });
+  }
+
+  void getData() {
+    detail = (WellDetail) getIntent().getSerializableExtra(Constant.MAINTAIN_QUERY_DATA);
+  }
+
+  @Override public void onClick(View v) {
+    switch (v.getId()) {
+      case R.id.query:
+        viewpager.setCurrentItem(0, false);
+        break;
+
+      case R.id.add:
+        viewpager.setCurrentItem(1, false);
+        break;
+
+      case R.id.modify:
+        viewpager.setCurrentItem(2, false);
+        break;
+
+      case R.id.delete:
+        viewpager.setCurrentItem(3, false);
+        break;
+
+      case R.id.back:
+        finish();
+        break;
+    }
+  }
+
+  class MaintainAdapter extends FragmentPagerAdapter {
+
+    public MaintainAdapter(FragmentManager fm) {
+      super(fm);
     }
 
-    private void initOnclick() {
+    @Override public Fragment getItem(int position) {
 
-        back.setOnClickListener(this);
-        query.setOnClickListener(this);
-        add.setOnClickListener(this);
-        delete.setOnClickListener(this);
-        modify.setOnClickListener(this);
+      switch (position) {
+        case 0:
+          if (queryFragment == null) {
+            queryFragment = new MaintainQueryFragment();
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(Constant.MAINTAIN_QUERY_DATA, detail);
+            queryFragment.setArguments(bundle);
+          }
+          return queryFragment;
+        case 1:
+          if (addFragment == null) {
+            addFragment = new MaintainAddFragment();
+          }
+          return addFragment;
+        case 2:
 
-        viewpager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+          if (modifyFragment == null) {
+            modifyFragment = new MaintainModifyFragment();
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(Constant.MAINTAIN_QUERY_DATA, detail);
+            modifyFragment.setArguments(bundle);
+          }
+          return modifyFragment;
+        case 3:
+          if (deleteFragment == null) {
+            deleteFragment = new MaintainDeleteFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString(Constant.WELL_ID, detail.wellID);
+            bundle.putString(Constant.WELL_NAME, detail.wellName);
+            deleteFragment.setArguments(bundle);
+          }
+          return deleteFragment;
+      }
 
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                segmentLayout.setChecked(position);
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-
+      return null;
     }
 
+    @Override public int getCount() {
+      return 4;
+    }
+  }
 
-    void getData(){
-        detail = (WellDetail) getIntent().getSerializableExtra(Constant.MAINTAIN_QUERY_DATA);
+  @Override public void onBackPressed() {
+    if (modifyFragment != null && modifyFragment.timePopupWindow != null
+        && modifyFragment.timePopupWindow.isShowing()) {
 
-
+      modifyFragment.timePopupWindow.dismiss();
+      return;
     }
 
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.query:
-                viewpager.setCurrentItem(0,false);
-                break;
-
-            case R.id.add:
-                viewpager.setCurrentItem(1,false);
-                break;
-
-            case R.id.modify:
-                viewpager.setCurrentItem(2,false);
-                break;
-
-            case R.id.delete:
-                viewpager.setCurrentItem(3,false);
-                break;
-
-            case R.id.back:
-                finish();
-                break;
-
-        }
-
-
-
-    }
-
-    class MaintainAdapter extends FragmentPagerAdapter {
-
-
-        public MaintainAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-
-            switch (position) {
-                case 0:
-                    if (queryFragment == null) {
-                        queryFragment = new MaintainQueryFragment();
-                        Bundle bundle = new Bundle();
-                        bundle.putSerializable(Constant.MAINTAIN_QUERY_DATA,detail);
-                        queryFragment.setArguments(bundle);
-                    }
-                    return queryFragment;
-                case 1:
-                    if (addFragment == null) {
-                        addFragment = new MaintainAddFragment();
-                    }
-                    return addFragment;
-                case 2:
-
-                    if (modifyFragment == null) {
-                        modifyFragment = new MaintainModifyFragment();
-                        Bundle bundle = new Bundle();
-                        bundle.putSerializable(Constant.MAINTAIN_QUERY_DATA,detail);
-                        modifyFragment.setArguments(bundle);
-                    }
-                    return modifyFragment;
-                case 3:
-                    if (deleteFragment == null) {
-                        deleteFragment = new MaintainDeleteFragment();
-                        Bundle bundle = new Bundle();
-                        bundle.putString(Constant.WELL_ID,detail.wellID);
-                        bundle.putString(Constant.WELL_NAME,detail.wellName);
-                        deleteFragment.setArguments(bundle);
-                    }
-                    return deleteFragment;
-            }
-
-            return null;
-        }
-
-        @Override
-        public int getCount() {
-            return 4;
-        }
-    }
+    super.onBackPressed();
+  }
 
 
 }

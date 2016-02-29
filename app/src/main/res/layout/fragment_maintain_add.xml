@@ -3,88 +3,109 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.hengze.hengzemanager.ui.fragment.MaintainAddFragment">
+    tools:context="com.hengze.hengzemanager.ui.fragment.MaintainAddFragment"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
+  <!-- TODO: Update blank fragment layout -->
 
-    <LinearLayout
-        android:layout_width="match_parent"
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:gravity="center_vertical"
+      android:layout_marginTop="20dp"
+      >
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_marginTop="20dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:textSize="16dp"
-            android:text="乡镇："/>
+        android:layout_marginLeft="20dp"
+        android:textSize="16dp"
+        android:text="乡镇："
+        />
 
-        <com.hengze.hengzemanager.ui.widget.spinner.NiceSpinner
-            android:id="@+id/first_area"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="20dp"
-
-
-            android:textSize="15dp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
+    <com.hengze.hengzemanager.ui.widget.spinner.NiceSpinner
+        android:id="@+id/first_area"
         android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="20dp"
+
+
+        android:textSize="15dp"
+        />
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:gravity="center_vertical"
+      android:layout_marginTop="20dp"
+      >
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_marginTop="20dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:textSize="16dp"
-            android:text="灌区："/>
+        android:layout_marginLeft="20dp"
+        android:textSize="16dp"
+        android:text="灌区："
+        />
 
-        <com.hengze.hengzemanager.ui.widget.spinner.NiceSpinner
-            android:id="@+id/second_area"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="20dp"
-
-
-            android:textSize="15dp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
+    <com.hengze.hengzemanager.ui.widget.spinner.NiceSpinner
+        android:id="@+id/second_area"
         android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="20dp"
+
+
+        android:textSize="15dp"
+        />
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:gravity="center_vertical"
+      android:layout_marginTop="20dp"
+      >
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_marginTop="20dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:textSize="16dp"
-            android:text="村组："/>
+        android:layout_marginLeft="20dp"
+        android:textSize="16dp"
+        android:text="村组："
+        />
 
-        <com.hengze.hengzemanager.ui.widget.spinner.NiceSpinner
-            android:id="@+id/third_area"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="20dp"
+    <com.hengze.hengzemanager.ui.widget.spinner.NiceSpinner
+        android:id="@+id/third_area"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="20dp"
 
 
-            android:textSize="15dp"/>
+        android:textSize="15dp"
+        />
 
-    </LinearLayout>
+  </LinearLayout>
 
+  <TextView
+      android:id="@+id/add_well"
+      android:layout_width="80dp"
+      android:layout_height="30dp"
+      android:text="添加机井"
+      android:textSize="15dp"
+      android:gravity="center"
+      android:layout_gravity="bottom|right"
+      android:layout_marginRight="20dp"
+      android:background="@color/blue"
+      android:textColor="#ffffff"
+      android:layout_marginTop="20dp"
+      android:layout_marginBottom="10dp"
+      />
 
 
 </LinearLayout>

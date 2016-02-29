@@ -60,7 +60,8 @@ public class MaintainQueryFragment extends Fragment {
             stringBuilder.append(detail.wellName + "\n");//机井名称
             stringBuilder.append(detail.lat + "\n");//经度
             stringBuilder.append(detail.lnt + "\n");//纬度
-            stringBuilder.append((detail.buildYear!= null ? detail.buildYear.getTime() : "") + "\n");//创建时间
+            //(detail.buildYear!= null ? detail.buildYear.getTime() : "") TODO
+            stringBuilder.append(  "\n");//创建时间
             stringBuilder.append(detail.qsxkzh + "\n");//
             stringBuilder.append(detail.wellDeep + "\n");//机井深度
             stringBuilder.append(detail.waterDeep + "\n");//水深度
