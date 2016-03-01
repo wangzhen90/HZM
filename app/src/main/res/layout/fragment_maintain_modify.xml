@@ -1,16 +1,30 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.hengze.hengzemanager.ui.fragment.MaintainModifyFragment"
     >
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="50dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        app:contentPadding="1dp">
+
+
   <ScrollView
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginBottom="50dp"
+
       >
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -592,7 +606,7 @@
 
 
   </ScrollView>
-
+    </android.support.v7.widget.CardView>
   <TextView
       android:id="@+id/commit"
       android:layout_width="60dp"

@@ -118,8 +118,10 @@ public class MaintainQueryFragment extends Fragment {
     void testWellUpdate2(WellDetail wellDetail) {
 
         wellDetail.wellName = "这是测试啊啊啊";
+        wellDetail.wellID = "0994310101988";
+        wellDetail.devID="9999";
         ApiClient apiClient = ApiClient.get();
-        apiClient.api.testUpdate2(wellDetail.wellName,new Callback<WellDetail>() {
+        apiClient.api.testUpdate2(wellDetail.wellName,wellDetail.wellID,wellDetail.devID,new Callback<WellDetail>() {
             @Override
             public void success(WellDetail wellDetail, Response response) {
                 Log.e("update2", "update2 succ" + wellDetail.wellName);

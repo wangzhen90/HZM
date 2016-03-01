@@ -1,72 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hengze.hengzemanager"
-    >
+    package="com.hengze.hengzemanager">
 
-  <uses-permission android:name="android.permission.INTERNET"/>
-  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-  <!--用于进行网络定位-->
-  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
-  <!--用于访问GPS定位-->
-  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
-  <!--获取运营商信息，用于支持提供运营商信息相关的接口-->
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
-  <!--用于访问wifi网络信息，wifi信息会用于进行网络定位-->
-  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
-  <!--这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
-  <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
-  <!--用于读取手机当前的状态-->
-  <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
-  <application
-      android:name=".AppApplication"
-      android:allowBackup="true"
-      android:icon="@mipmap/ic_launcher"
-      android:label="@string/app_name"
-      android:theme="@style/AppTheme"
-      >
-    <meta-data
-        android:name="com.amap.api.v2.apikey"
-        android:value="592377be1ebe3aa0da430f9899f92a66"
-        >//开发者申请的key
-
-    </meta-data>
-
-    <activity
-        android:name=".ui.activity.MainActivity"
+    <application
+        android:name=".AppApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        >
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN"/>
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="592377be1ebe3aa0da430f9899f92a66">
+            //开发者申请的key</meta-data>
 
-        <category android:name="android.intent.category.LAUNCHER"/>
-      </intent-filter>
-    </activity>
-    <activity
-        android:name=".ui.activity.LoginActivity"
-        android:label="@string/title_activity_login"
-        android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
-        ></activity>
-    <activity
-        android:name=".ui.activity.CardConsumeActivity"
-        android:label="@string/title_activity_water_cosume"
-        ></activity>
-    <activity
-        android:name=".ui.activity.CardVorcherRecordActivity"
-        android:label="@string/title_activity_card_vorcher_record"
-        ></activity>
-    <activity
-        android:name=".ui.activity.VoucherDetailActivity"
-        android:label="@string/title_activity_voucher_detail"
-        ></activity>
-    <activity
-        android:name=".ui.activity.MaintainActivity"
-        android:label="@string/title_activity_maintain"
-        android:theme="@style/AppTheme.NoActionBar"
-        ></activity>
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-    <service android:name="com.amap.api.location.APSService"></service>
-  </application>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activity.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+        <activity
+            android:name=".ui.activity.CardConsumeActivity"
+            android:label="@string/title_activity_water_cosume" />
+        <activity
+            android:name=".ui.activity.CardVorcherRecordActivity"
+            android:label="@string/title_activity_card_vorcher_record" />
+        <activity
+            android:name=".ui.activity.VoucherDetailActivity"
+            android:label="@string/title_activity_voucher_detail" />
+        <activity
+            android:name=".ui.activity.MaintainActivity"
+            android:label="@string/title_activity_maintain"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <service android:name="com.amap.api.location.APSService" />
+
+        <activity
+            android:name=".ui.activity.AddNewWellInfoActivity"
+            android:label="@string/title_activity_add_new_well_info"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+    </application>
 
 </manifest>

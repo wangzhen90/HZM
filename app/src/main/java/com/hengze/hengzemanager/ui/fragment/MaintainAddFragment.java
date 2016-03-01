@@ -1,7 +1,9 @@
 package com.hengze.hengzemanager.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,11 +12,15 @@ import android.widget.AdapterView;
 import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+
+import com.hengze.hengzemanager.Constant;
 import com.hengze.hengzemanager.R;
 import com.hengze.hengzemanager.Utils.ToastUtils;
 import com.hengze.hengzemanager.modle.AddressNode;
 import com.hengze.hengzemanager.modle.AddressTree;
+import com.hengze.hengzemanager.modle.WellDetail;
 import com.hengze.hengzemanager.net.ApiClient;
+import com.hengze.hengzemanager.ui.activity.AddNewWellInfoActivity;
 import com.hengze.hengzemanager.ui.widget.spinner.NiceSpinner;
 import java.util.ArrayList;
 import retrofit.Callback;
@@ -71,7 +77,8 @@ public class MaintainAddFragment extends Fragment {
     });
 
     addWell.setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
+      @Override
+      public void onClick(View v) {
 
         String newWellId = cun.get(thirdArea.getSelectedIndex()).id;
         if (newWellId == null) {
@@ -79,11 +86,24 @@ public class MaintainAddFragment extends Fragment {
         }
         ApiClient apiClient = ApiClient.get();
         apiClient.api.addWell(newWellId, new Callback<String>() {
-          @Override public void success(String s, Response response) {
+          @Override
+          public void success(String s, Response response) {
             Log.e("test", "获取新增id成功" + s);
+
+
+            if (!TextUtils.isEmpty(s)) {
+              WellDetail detail = new WellDetail();
+              detail.wellID = s;
+              Intent intent = new Intent(getActivity(), AddNewWellInfoActivity.class);
+              intent.putExtra(Constant.MAINTAIN_QUERY_DATA, detail);
+              startActivity(intent);
+            }
+
+
           }
 
-          @Override public void failure(RetrofitError error) {
+          @Override
+          public void failure(RetrofitError error) {
             Log.e("test", "获取新增id失败" + error.getMessage() + ",kind:" + error.getKind());
           }
         });
