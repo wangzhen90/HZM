@@ -11,16 +11,16 @@ public class WellDetail implements Serializable{
     public String devID;//设备号
     public String cezhanID;//DTU编号
     public String wellName;//机井名称
-    public Double lat;//经度
-    public Double lnt;//纬度
+    public double lat;//经度
+    public double lnt;//纬度
     public String buildYear;//创建时间
     public String qsxkzh;//
-    public Double wellDeep;//机井深度
-    public Double waterDeep;//
+    public double wellDeep;//机井深度
+    public double waterDeep;//
     public String waterQuality;//水质
     public int pumpPower;//水泵功率
-    public Double perWtOut;//单位出水量
-    public Double perEleOut;//单位功耗
+    public double perWtOut;//单位出水量
+    public double perEleOut;//单位功耗
     public int yearNumber;//年度水表底数
     public String managerName;//管理员
     public String managerTel;//电话

@@ -53,8 +53,30 @@ public interface Api {
     @GET("/add.wellan")
     void addWell(@Query("wellID") String wellID, Callback<String> callback);
 
+    @FormUrlEncoded
     @POST("/add.wellan")
-    void addWellInfo(@Body() WellDetail wellDetail,
+    void addWellInfo(@Field("wellID") String wellID,
+                     @Field("devID") String devID,
+                     @Field("cezhanID") String cezhanID,
+                     @Field("wellName") String wellName,
+                     @Field("lat") double lat,
+                     @Field("lnt") double lnt,
+                     @Field("buildYear") String buildYear,
+                     @Field("qsxkzh") String qsxkzh,
+                     @Field("wellDeep") double wellDeep,
+                     @Field("waterDeep") double waterDeep,
+                     @Field("waterQuality") String waterQuality,
+                     @Field("pumpPower") double pumpPower,
+                     @Field("perWtOut") double perWtOut,
+                     @Field("perEleOut") double perEleOut,
+                     @Field("yearNumber") int yearNumber,
+                     @Field("managerName") String managerName,
+                     @Field("managerTel") String managerTel,
+                     @Field("netType") String netType,
+                     @Field("simID") String simID,
+                     @Field("remark") String remark,
+
+
                      Callback<WellDetail> callback);
 
     //118.183.190.176:8082/HzmoFrame/modify.wellan

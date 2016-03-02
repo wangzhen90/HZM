@@ -89,8 +89,30 @@ public class MaintainModifyFragment extends Fragment {
     setWellInfo(wellInfo);
     commit.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
+        getWellInfo();
         ApiClient apiClient = ApiClient.get();
-        apiClient.api.addWellInfo(getWellInfo(), new Callback<WellDetail>() {
+        apiClient.api.addWellInfo(wellInfo.wellID,
+                wellInfo.devID,
+                wellInfo.cezhanID,
+                wellInfo.wellName,
+                wellInfo.lat,
+                wellInfo.lnt,
+                wellInfo.buildYear,
+                wellInfo.qsxkzh,
+                wellInfo.wellDeep,
+                wellInfo.waterDeep,
+                wellInfo.waterQuality,
+                wellInfo.pumpPower,
+                wellInfo.perWtOut,
+                wellInfo.perEleOut,
+                wellInfo.yearNumber,
+                wellInfo.managerName,
+                wellInfo.managerTel,
+                wellInfo.netType,
+                wellInfo.simID,
+                wellInfo.remark,
+
+                new Callback<WellDetail>() {
           @Override public void success(WellDetail wellDetail, Response response) {
             Log.e(TAG, "更新成功,status:" + wellDetail);
           }
@@ -137,7 +159,7 @@ public class MaintainModifyFragment extends Fragment {
     wellID.setFocusable(false);
     buildYear.setText(info.buildYear);
     qsxkzh.setText(info.qsxkzh);
-    wellDeep.setText(info.wellDeep + "");
+    wellDeep.setText(info.wellDeep  + "");
     waterDeep.setText(info.waterDeep + "");
     pumpPower.setText(info.pumpPower + "");
     waterQuality.setText(info.waterQuality + "");
