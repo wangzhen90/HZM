@@ -98,7 +98,7 @@ public class MaintainModifyFragment extends Fragment {
                 wellInfo.wellName,
                 wellInfo.lat,
                 wellInfo.lnt,
-                //wellInfo.buildYear,
+                wellInfo.buildYear,
                 //wellInfo.qsxkzh,
                 //wellInfo.wellDeep,
                 //wellInfo.waterDeep,
@@ -178,24 +178,24 @@ public class MaintainModifyFragment extends Fragment {
 
   WellDetail getWellInfo() {
     wellInfo.devID = devID.getText().toString();
-    //wellInfo.cezhanID = cezhanID.getText().toString();
+    wellInfo.cezhanID = cezhanID.getText().toString();
     wellInfo.wellName = wellName.getText().toString();
     wellInfo.wellID = wellID.getText().toString();
     wellInfo.lat = Double.valueOf(lat.getText().toString());
     wellInfo.lnt = Double.valueOf(lon.getText().toString());
-    //wellInfo.buildYear = wellName.getText().toString();
+    wellInfo.buildYear = wellName.getText().toString();
 
-    //wellInfo.qsxkzh = qsxkzh.getText().toString();
-    //wellInfo.wellDeep = Double.valueOf(wellDeep.getText().toString());
-    //wellInfo.waterDeep = Double.valueOf(waterDeep.getText().toString());
-    //wellInfo.pumpPower = Integer.valueOf(pumpPower.getText().toString());
-    //wellInfo.perWtOut = Double.valueOf(perWtOut.getText().toString());
-    //wellInfo.yearNumber = Integer.valueOf(yearNumber.getText().toString());
-    //wellInfo.netType = netType.getText().toString();
-    //wellInfo.simID = simID.getText().toString();
-    //wellInfo.remark = remark.getText().toString();
-    //wellInfo.managerName = managerName.getText().toString();
-    //wellInfo.managerTel = managerTel.getText().toString();
+    wellInfo.qsxkzh = qsxkzh.getText().toString();
+    wellInfo.wellDeep = Double.valueOf(wellDeep.getText().toString());
+    wellInfo.waterDeep = Double.valueOf(waterDeep.getText().toString());
+    wellInfo.pumpPower = Integer.valueOf(pumpPower.getText().toString());
+    wellInfo.perWtOut = Double.valueOf(perWtOut.getText().toString());
+    wellInfo.yearNumber = Integer.valueOf(yearNumber.getText().toString());
+    wellInfo.netType = netType.getText().toString();
+    wellInfo.simID = simID.getText().toString();
+    wellInfo.remark = remark.getText().toString();
+    wellInfo.managerName = managerName.getText().toString();
+    wellInfo.managerTel = managerTel.getText().toString();
 
     return wellInfo;
   }

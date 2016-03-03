@@ -62,7 +62,7 @@ public interface Api {
                      @Field("wellName") String wellName,
                      @Field("lat") double lat,
                      @Field("lnt") double lnt,
-                     //@Field("buildYear") String buildYear,
+                     @Field("buildYear") String buildYear,
                      //@Field("qsxkzh") String qsxkzh,
                      //@Field("wellDeep") double wellDeep,
                      //@Field("waterDeep") double waterDeep,
@@ -76,8 +76,6 @@ public interface Api {
                      //@Field("netType") String netType,
                      //@Field("simID") String simID,
                      //@Field("remark") String remark,
-
-
                      Callback<String[]> callback);
 
     //118.183.190.176:8082/HzmoFrame/modify.wellan
