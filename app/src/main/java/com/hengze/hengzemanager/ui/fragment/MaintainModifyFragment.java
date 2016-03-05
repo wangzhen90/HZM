@@ -31,6 +31,7 @@ import com.hengze.hengzemanager.Utils.DateUtil;
 import com.hengze.hengzemanager.Utils.ToastUtils;
 import com.hengze.hengzemanager.modle.WellDetail;
 import com.hengze.hengzemanager.net.ApiClient;
+import com.hengze.hengzemanager.ui.activity.AddNewWellInfoActivity;
 import com.hengze.hengzemanager.ui.widget.pickview.TimePopupWindow;
 import java.util.Date;
 import java.util.Iterator;
@@ -92,36 +93,72 @@ public class MaintainModifyFragment extends Fragment {
       @Override public void onClick(View v) {
         getWellInfo();
         ApiClient apiClient = ApiClient.get();
-        apiClient.api.addWellInfo(wellInfo.wellID,
-                wellInfo.devID,
-                //wellInfo.cezhanID,
-                wellInfo.wellName,
-                wellInfo.lat,
-                wellInfo.lnt,
-                wellInfo.buildYear,
-                //wellInfo.qsxkzh,
-                //wellInfo.wellDeep,
-                //wellInfo.waterDeep,
-                //wellInfo.waterQuality,
-                //wellInfo.pumpPower,
-                //wellInfo.perWtOut,
-                //wellInfo.perEleOut,
-                //wellInfo.yearNumber,
-                //wellInfo.managerName,
-                //wellInfo.managerTel,
-                //wellInfo.netType,
-                //wellInfo.simID,
-                //wellInfo.remark,
 
-                new Callback<String[]>() {
-          @Override public void success(String[] wellDetail, Response response) {
-            Log.e(TAG, "更新成功,status:" + wellDetail);
-          }
+        if(getContext() instanceof AddNewWellInfoActivity){
+          apiClient.api.addWellInfo(wellInfo.wellID,
+              wellInfo.devID,
+              wellInfo.cezhanID,
+              wellInfo.wellName,
+              wellInfo.lat,
+              wellInfo.lnt,
+              wellInfo.buildYear,
+              wellInfo.qsxkzh,
+              wellInfo.wellDeep,
+              wellInfo.waterDeep,
+              wellInfo.waterQuality,
+              wellInfo.pumpPower+"",
+              wellInfo.perWtOut,
+              wellInfo.perEleOut,
+              wellInfo.yearNumber,
+              wellInfo.managerName,
+              wellInfo.managerTel,
+              wellInfo.netType,
+              wellInfo.simID,
+              wellInfo.remark,
 
-          @Override public void failure(RetrofitError error) {
-            Log.e(TAG, "更新失败,error:" + error.getKind() + ",msg:" + error.getMessage());
-          }
-        });
+              new Callback<String[]>() {
+                @Override public void success(String[] wellDetail, Response response) {
+                  Log.e(TAG, "新更新成功,status:" + wellDetail);
+                }
+
+                @Override public void failure(RetrofitError error) {
+                  Log.e(TAG, "新更新失败,error:" + error.getKind() + ",msg:" + error.getMessage());
+                }
+              });
+        }else {
+          apiClient.api.updateWellInfo(wellInfo.wellID,
+              wellInfo.devID,
+              wellInfo.cezhanID,
+              wellInfo.wellName,
+              wellInfo.lat,
+              wellInfo.lnt,
+              wellInfo.buildYear,
+              wellInfo.qsxkzh,
+              wellInfo.wellDeep,
+              wellInfo.waterDeep,
+              wellInfo.waterQuality,
+              wellInfo.pumpPower+"",
+              wellInfo.perWtOut,
+              wellInfo.perEleOut,
+              wellInfo.yearNumber,
+              wellInfo.managerName,
+              wellInfo.managerTel,
+              wellInfo.netType,
+              wellInfo.simID,
+              wellInfo.remark,
+
+              new Callback<String[]>() {
+                @Override public void success(String[] wellDetail, Response response) {
+                  Log.e(TAG, "更新成功,status:" + wellDetail);
+                }
+
+                @Override public void failure(RetrofitError error) {
+                  Log.e(TAG, "更新失败,error:" + error.getKind() + ",msg:" + error.getMessage());
+                }
+              });
+        }
+
+
       }
     });
 
@@ -183,12 +220,13 @@ public class MaintainModifyFragment extends Fragment {
     wellInfo.wellID = wellID.getText().toString();
     wellInfo.lat = Double.valueOf(lat.getText().toString());
     wellInfo.lnt = Double.valueOf(lon.getText().toString());
-    wellInfo.buildYear = wellName.getText().toString();
+    wellInfo.buildYear = buildYear.getText().toString();
 
     wellInfo.qsxkzh = qsxkzh.getText().toString();
     wellInfo.wellDeep = Double.valueOf(wellDeep.getText().toString());
     wellInfo.waterDeep = Double.valueOf(waterDeep.getText().toString());
     wellInfo.pumpPower = Integer.valueOf(pumpPower.getText().toString());
+    wellInfo.waterQuality = waterQuality.getText().toString();
     wellInfo.perWtOut = Double.valueOf(perWtOut.getText().toString());
     wellInfo.yearNumber = Integer.valueOf(yearNumber.getText().toString());
     wellInfo.netType = netType.getText().toString();
