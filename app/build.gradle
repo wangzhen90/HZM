@@ -49,4 +49,5 @@ dependencies {
     compile 'com.android.support:design:23.1.1'
     compile 'com.android.support:recyclerview-v7:23.1.1'
     compile files('libs/AMap_Location_v2.3.0_20160112.jar')
+    compile 'com.flaviofaria:kenburnsview:1.0.7'
 }

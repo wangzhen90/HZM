@@ -4,73 +4,77 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.hengze.hengzemanager.ui.activity.MainActivity"
-    >
-  <RelativeLayout
-      android:layout_width="match_parent"
-      android:layout_height="0dp"
-      android:layout_weight="1"
-      >
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager"
+    tools:context="com.hengze.hengzemanager.ui.activity.MainActivity">
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
-  </RelativeLayout>
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <com.flaviofaria.kenburnsview.KenBurnsView
+            android:id="@+id/ken_view"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/img2" />
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="100dp"
+            android:background="#00000000"
+            />
 
-<View
-    android:layout_width="match_parent"
-    android:layout_height="2px"
-    android:background="#20000000"
-    />
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="55dp"
-      android:orientation="horizontal"
-      >
+    </RelativeLayout>
 
-    <com.hengze.hengzemanager.ui.widget.ChangeColorIconWithTextView
-        android:id="@+id/query"
-        android:layout_width="0dp"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:padding="5dp"
-        app:icon_my="@drawable/ic_menu_start_conversation"
-        app:text_my="查询"
-        app:text_size_my="12sp"
-        />
-      <com.hengze.hengzemanager.ui.widget.ChangeColorIconWithTextView
-          android:id="@+id/maintain"
-          android:layout_width="0dp"
-          android:layout_height="fill_parent"
-          android:layout_weight="1"
-          android:padding="5dp"
-          app:icon_my="@drawable/ic_menu_friendslist"
-          app:text_my="维护"
-          app:text_size_my="12sp"
-          />
-    <com.hengze.hengzemanager.ui.widget.ChangeColorIconWithTextView
-        android:id="@+id/voucher"
-        android:layout_width="0dp"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:padding="5dp"
-        app:icon_my="@drawable/ic_menu_friendslist"
-        app:text_my="充值"
-        app:text_size_my="12sp"
-        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="#20000000" />
 
-    <com.hengze.hengzemanager.ui.widget.ChangeColorIconWithTextView
-        android:id="@+id/detection"
-        android:layout_width="0dp"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:padding="5dp"
-        app:icon_my="@drawable/ic_menu_friendslist"
-        app:text_my="监测"
-        app:text_size_my="12sp"
-        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="horizontal">
 
-  </LinearLayout>
+        <com.hengze.hengzemanager.ui.widget.ChangeColorIconWithTextView
+            android:id="@+id/query"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            app:icon_my="@drawable/ic_menu_start_conversation"
+            app:text_my="查询"
+            app:text_size_my="12sp" />
+
+        <com.hengze.hengzemanager.ui.widget.ChangeColorIconWithTextView
+            android:id="@+id/maintain"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            app:icon_my="@drawable/ic_menu_friendslist"
+            app:text_my="维护"
+            app:text_size_my="12sp" />
+
+        <com.hengze.hengzemanager.ui.widget.ChangeColorIconWithTextView
+            android:id="@+id/voucher"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            app:icon_my="@drawable/ic_menu_friendslist"
+            app:text_my="充值"
+            app:text_size_my="12sp" />
+
+        <com.hengze.hengzemanager.ui.widget.ChangeColorIconWithTextView
+            android:id="@+id/detection"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            app:icon_my="@drawable/ic_menu_friendslist"
+            app:text_my="监测"
+            app:text_size_my="12sp" />
+
+    </LinearLayout>
 
 </LinearLayout>

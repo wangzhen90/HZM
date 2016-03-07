@@ -57,7 +57,7 @@
                 android:layout_gravity="bottom|right"
                 android:layout_marginBottom="10dp"
                 android:layout_marginRight="10dp"
-                android:background="@color/blue"
+                android:background="@drawable/bt_bg"
                 android:gravity="center"
                 android:text="查询"
                 android:textColor="#ffffff"

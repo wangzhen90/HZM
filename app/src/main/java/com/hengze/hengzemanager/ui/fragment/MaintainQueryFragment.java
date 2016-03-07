@@ -80,13 +80,13 @@ public class MaintainQueryFragment extends Fragment {
             stringBuilder.append(detail.remark + "\n");
 
             result.setText(stringBuilder);
-            resultTag.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-//                    testWellUpdate(detail);
-                    testWellUpdate2(detail);
-                }
-            });
+//            resultTag.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+////                    testWellUpdate(detail);
+//                    testWellUpdate2(detail);
+//                }
+//            });
 
         }
 
