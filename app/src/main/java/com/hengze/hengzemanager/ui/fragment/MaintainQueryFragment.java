@@ -98,40 +98,40 @@ public class MaintainQueryFragment extends Fragment {
         ButterKnife.unbind(this);
     }
 
-    void testWellUpdate(WellDetail wellDetail) {
-        wellDetail.wellName = "这是测试";
-        ApiClient apiClient = ApiClient.get();
-        apiClient.api.testUpdate(detail, new Callback<WellDetail>() {
-            @Override
-            public void success(WellDetail wellDetail, Response response) {
-                Log.e("update", "update succ" + wellDetail.wellName);
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-                Log.e("update", "update failed,error" + error.getMessage() + ",kind:" + error.getKind());
-            }
-        });
-
-    }
-
-    void testWellUpdate2(WellDetail wellDetail) {
-
-        wellDetail.wellName = "这是测试啊啊啊";
-        wellDetail.wellID = "0994310101988";
-        wellDetail.devID="9999";
-        ApiClient apiClient = ApiClient.get();
-        apiClient.api.testUpdate2(wellDetail.wellName,wellDetail.wellID,wellDetail.devID,new Callback<WellDetail>() {
-            @Override
-            public void success(WellDetail wellDetail, Response response) {
-                Log.e("update2", "update2 succ" + wellDetail.wellName);
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-                Log.e("update2", "update2 failed,error" + error.getMessage() + ",kind:" + error.getKind());
-            }
-        });
-
-    }
+    //void testWellUpdate(WellDetail wellDetail) {
+    //    wellDetail.wellName = "这是测试";
+    //    ApiClient apiClient = ApiClient.get();
+    //    apiClient.api.testUpdate(detail, new Callback<WellDetail>() {
+    //        @Override
+    //        public void success(WellDetail wellDetail, Response response) {
+    //            Log.e("update", "update succ" + wellDetail.wellName);
+    //        }
+    //
+    //        @Override
+    //        public void failure(RetrofitError error) {
+    //            Log.e("update", "update failed,error" + error.getMessage() + ",kind:" + error.getKind());
+    //        }
+    //    });
+    //
+    //}
+    //
+    //void testWellUpdate2(WellDetail wellDetail) {
+    //
+    //    wellDetail.wellName = "这是测试啊啊啊";
+    //    wellDetail.wellID = "0994310101988";
+    //    wellDetail.devID="9999";
+    //    ApiClient apiClient = ApiClient.get();
+    //    apiClient.api.testUpdate2(wellDetail.wellName,wellDetail.wellID,wellDetail.devID,new Callback<WellDetail>() {
+    //        @Override
+    //        public void success(WellDetail wellDetail, Response response) {
+    //            Log.e("update2", "update2 succ" + wellDetail.wellName);
+    //        }
+    //
+    //        @Override
+    //        public void failure(RetrofitError error) {
+    //            Log.e("update2", "update2 failed,error" + error.getMessage() + ",kind:" + error.getKind());
+    //        }
+    //    });
+    //
+    //}
 }

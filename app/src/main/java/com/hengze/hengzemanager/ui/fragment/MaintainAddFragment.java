@@ -77,19 +77,17 @@ public class MaintainAddFragment extends Fragment {
     });
 
     addWell.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
+      @Override public void onClick(View v) {
 
         String newWellId = cun.get(thirdArea.getSelectedIndex()).id;
+        newWellId = "099401";//测试id
         if (newWellId == null) {
           ToastUtils.showToast("选择村子不能为空");
         }
         ApiClient apiClient = ApiClient.get();
         apiClient.api.addWell(newWellId, new Callback<String>() {
-          @Override
-          public void success(String s, Response response) {
+          @Override public void success(String s, Response response) {
             Log.e("test", "获取新增id成功" + s);
-
 
             if (!TextUtils.isEmpty(s)) {
               WellDetail detail = new WellDetail();
@@ -98,12 +96,9 @@ public class MaintainAddFragment extends Fragment {
               intent.putExtra(Constant.MAINTAIN_QUERY_DATA, detail);
               startActivity(intent);
             }
-
-
           }
 
-          @Override
-          public void failure(RetrofitError error) {
+          @Override public void failure(RetrofitError error) {
             Log.e("test", "获取新增id失败" + error.getMessage() + ",kind:" + error.getKind());
           }
         });

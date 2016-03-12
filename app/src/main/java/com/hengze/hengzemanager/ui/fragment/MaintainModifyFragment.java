@@ -30,6 +30,7 @@ import com.hengze.hengzemanager.R;
 import com.hengze.hengzemanager.Utils.DateUtil;
 import com.hengze.hengzemanager.Utils.ToastUtils;
 import com.hengze.hengzemanager.modle.WellDetail;
+import com.hengze.hengzemanager.modle.WellInfo;
 import com.hengze.hengzemanager.net.ApiClient;
 import com.hengze.hengzemanager.ui.activity.AddNewWellInfoActivity;
 import com.hengze.hengzemanager.ui.widget.pickview.TimePopupWindow;
@@ -116,8 +117,8 @@ public class MaintainModifyFragment extends Fragment {
               wellInfo.simID,
               wellInfo.remark,
 
-              new Callback<String[]>() {
-                @Override public void success(String[] wellDetail, Response response) {
+              new Callback<WellDetail[]>() {
+                @Override public void success(WellDetail[] wellDetail, Response response) {
                   Log.e(TAG, "新更新成功,status:" + wellDetail);
                 }
 
@@ -147,8 +148,8 @@ public class MaintainModifyFragment extends Fragment {
               wellInfo.simID,
               wellInfo.remark,
 
-              new Callback<String[]>() {
-                @Override public void success(String[] wellDetail, Response response) {
+              new Callback<WellDetail[]>() {
+                @Override public void success(WellDetail[] wellDetail, Response response) {
                   Log.e(TAG, "更新成功,status:" + wellDetail);
                 }
 

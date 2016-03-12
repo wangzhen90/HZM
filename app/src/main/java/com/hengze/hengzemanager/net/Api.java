@@ -6,6 +6,8 @@ import com.hengze.hengzemanager.modle.UserWrapper;
 import com.hengze.hengzemanager.modle.CardConsumeInfo;
 import com.hengze.hengzemanager.modle.WellDetail;
 
+import com.hengze.hengzemanager.modle.WellInfo;
+import com.hengze.hengzemanager.modle.WellRt;
 import java.util.ArrayList;
 
 import java.util.List;
@@ -76,7 +78,7 @@ public interface Api {
                      @Field("netType") String netType,
                      @Field("simID") String simID,
                      @Field("remark") String remark,
-                     Callback<String[]> callback);
+                     Callback<WellDetail[]> callback);
 
   @FormUrlEncoded
   @POST("/modify.wellan")
@@ -100,18 +102,11 @@ public interface Api {
       @Field("netType") String netType,
       @Field("simID") String simID,
       @Field("remark") String remark,
-      Callback<String[]> callback);
+      Callback<WellDetail[]> callback);
 
+  //http://118.183.190.176:8082/HzmoFrame/show.MonitorAn?orgCode=0994
+  //监测模块查询信息
+ @GET("/show.MonitorAn")
+ void queryInfoByArea(@Query("orgCode") String orgCode, Callback<ArrayList<WellRt>> callback);
 
-    //118.183.190.176:8082/HzmoFrame/modify.wellan
-    @POST("/modify.wellan")
-    void testUpdate(@Body WellDetail wellDetail,
-                    Callback<WellDetail> callback);
-
-    @FormUrlEncoded
-    @POST("/modify.wellan")
-    void testUpdate2(@Field("wellName") String wellName,
-                     @Field("wellID") String wellID,
-                     @Field("devID") String devID,
-                     Callback<WellDetail> callback);
 }
