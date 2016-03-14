@@ -21,6 +21,7 @@ import com.hengze.hengzemanager.ui.activity.MaintainActivity;
 
 import java.util.ArrayList;
 
+import dmax.dialog.SpotsDialog;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
@@ -32,6 +33,7 @@ public class MaintainFragment extends Fragment implements View.OnClickListener {
 
     EditText well_id;
     TextView query;
+    SpotsDialog spotsDialog;
 
     public MaintainFragment() {
         // Required empty public constructor
@@ -69,18 +71,29 @@ public class MaintainFragment extends Fragment implements View.OnClickListener {
                     ToastUtils.showToast("请输入机井编号");
                     return;
                 }
+                if (spotsDialog == null) {
+                    spotsDialog = new SpotsDialog(getContext(), "加载中...");
+                    spotsDialog.show();
+                } else {
+                    spotsDialog.dismiss();
+                }
+
                 ApiClient apiClient = ApiClient.get();
                 apiClient.api.queryWellDetail(wellID, new Callback<ArrayList<WellDetail>>() {
                     @Override
                     public void success(ArrayList<WellDetail> wellDetails, Response response) {
+                        if (spotsDialog != null)
+                            spotsDialog.dismiss();
                         Log.e("ApiClient", "queryWellDetail succ");
-                        if(wellDetails != null && wellDetails.size() >0){
+                        if (wellDetails != null && wellDetails.size() > 0) {
                             toDetailPage(wellDetails.get(0));
                         }
                     }
 
                     @Override
                     public void failure(RetrofitError error) {
+                        if (spotsDialog != null)
+                            spotsDialog.dismiss();
                         Log.e("ApiClient", "queryWellDetail failed,error:" + error.getKind() + "," + error.getMessage());
                     }
                 });
@@ -93,7 +106,7 @@ public class MaintainFragment extends Fragment implements View.OnClickListener {
 
     void toDetailPage(WellDetail detail) {
         Intent intent = new Intent(getActivity(), MaintainActivity.class);
-        intent.putExtra(Constant.MAINTAIN_QUERY_DATA,detail);
+        intent.putExtra(Constant.MAINTAIN_QUERY_DATA, detail);
 
 
         getActivity().startActivity(intent);

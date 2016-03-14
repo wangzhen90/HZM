@@ -2,12 +2,149 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.DetectionFragment">
-
-  <!-- TODO: Update blank fragment layout -->
-  <TextView
+    tools:context=".ui.fragment.DetectionFragment"
+    >
+  <ScrollView
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:text="监测"/>
+      >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="100dp"
+        >
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20dp"
+          android:gravity="center_vertical"
+          android:orientation="horizontal"
+          >
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="乡镇："
+            android:textSize="16dp"
+            />
+
+        <com.hengze.hengzemanager.ui.widget.spinner.NiceSpinner
+            android:id="@+id/first_area"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="20dp"
+
+
+            android:textSize="15dp"
+            />
+
+      </LinearLayout>
+      <TextView
+          android:id="@+id/query_zhen"
+          android:layout_width="100dp"
+          android:layout_height="30dp"
+          android:layout_gravity="bottom|right"
+          android:layout_marginBottom="5dp"
+          android:layout_marginRight="20dp"
+          android:layout_marginTop="5dp"
+          android:background="@drawable/bt_bg"
+          android:gravity="center"
+          android:text="按乡镇查询"
+          android:textColor="#ffffff"
+          android:textSize="15dp"
+          />
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:gravity="center_vertical"
+          android:orientation="horizontal"
+          >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="灌区："
+            android:textSize="16dp"
+            />
+
+        <com.hengze.hengzemanager.ui.widget.spinner.NiceSpinner
+            android:id="@+id/second_area"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="20dp"
+
+
+            android:textSize="15dp"
+            />
+
+
+      </LinearLayout>
+      <TextView
+          android:id="@+id/query_gq"
+          android:layout_width="100dp"
+          android:layout_height="30dp"
+          android:layout_gravity="bottom|right"
+          android:layout_marginBottom="5dp"
+          android:layout_marginRight="20dp"
+          android:layout_marginTop="5dp"
+          android:background="@drawable/bt_bg"
+          android:gravity="center"
+          android:text="按灌区查询"
+          android:textColor="#ffffff"
+          android:textSize="15dp"
+          />
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:gravity="center_vertical"
+          android:orientation="horizontal"
+          >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="村组："
+            android:textSize="16dp"
+            />
+
+        <com.hengze.hengzemanager.ui.widget.spinner.NiceSpinner
+            android:id="@+id/third_area"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="20dp"
+
+
+            android:textSize="15dp"
+            />
+
+      </LinearLayout>
+
+      <TextView
+          android:id="@+id/query_cun"
+          android:layout_width="100dp"
+          android:layout_height="30dp"
+          android:layout_gravity="bottom|right"
+          android:layout_marginBottom="5dp"
+          android:layout_marginRight="20dp"
+          android:layout_marginTop="5dp"
+          android:background="@drawable/bt_bg"
+          android:gravity="center"
+          android:text="按村组查询"
+          android:textColor="#ffffff"
+          android:textSize="15dp"
+          />
+
+
+    </LinearLayout>
+
+  </ScrollView>
 </FrameLayout>

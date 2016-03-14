@@ -3,6 +3,7 @@
     <color name="gray">#313131</color>
     <color name="blue">#1FBAF3</color>
     <color name="black">#99000000</color>
+    <color name="gray_bg">#DCDCDC</color>
 
     <color name="white">#ffffff</color>
     <color name="dark_bule">#0077C9</color>
@@ -17,6 +18,8 @@
     <color name="radio_button_selected_color">#ff33b5e5</color>
     <color name="radio_button_unselected_color">@android:color/transparent</color>
     <color name="light_gray">#fff5f5f5</color>
+
+
 
   <color name="wheel_timebtn_nor">#54a3fa</color>
   <color name="wheel_timebtn_pre">#CCCCCC</color>

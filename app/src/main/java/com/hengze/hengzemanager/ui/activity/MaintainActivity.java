@@ -24,6 +24,7 @@ import com.hengze.hengzemanager.ui.widget.SegmentLayout;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import dmax.dialog.SpotsDialog;
 
 public class MaintainActivity extends FragmentActivity implements View.OnClickListener {
     FragmentManager manager;
@@ -182,5 +183,27 @@ public class MaintainActivity extends FragmentActivity implements View.OnClickLi
         super.onBackPressed();
     }
 
+    SpotsDialog spotsDialog;
+
+    void showDialog(String msg) {
+        if (msg == null) msg = "加载中...";
+
+
+        if (spotsDialog == null) {
+            spotsDialog = new SpotsDialog(this, msg);
+            spotsDialog.show();
+        } else {
+            spotsDialog.show();
+        }
+
+
+    }
+
+    void hideDialog() {
+        if (spotsDialog != null) {
+            spotsDialog.dismiss();
+            spotsDialog = null;
+        }
+    }
 
 }
