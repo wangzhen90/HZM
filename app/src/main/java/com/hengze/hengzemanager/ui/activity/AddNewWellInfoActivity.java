@@ -52,8 +52,6 @@ public class AddNewWellInfoActivity extends AppCompatActivity {
         modifyFragment.setArguments(bundle);
 
         manager.beginTransaction().replace(R.id.layout_content, modifyFragment).commit();
-
-
     }
 
 }

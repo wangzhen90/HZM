@@ -33,6 +33,8 @@ import com.hengze.hengzemanager.modle.WellDetail;
 import com.hengze.hengzemanager.modle.WellInfo;
 import com.hengze.hengzemanager.net.ApiClient;
 import com.hengze.hengzemanager.ui.activity.AddNewWellInfoActivity;
+import com.hengze.hengzemanager.ui.activity.MainActivity;
+import com.hengze.hengzemanager.ui.activity.MaintainActivity;
 import com.hengze.hengzemanager.ui.widget.pickview.TimePopupWindow;
 import java.util.Date;
 import java.util.Iterator;
@@ -95,7 +97,7 @@ public class MaintainModifyFragment extends Fragment {
         getWellInfo();
         ApiClient apiClient = ApiClient.get();
 
-        if(getContext() instanceof AddNewWellInfoActivity){
+        if(getContext() instanceof AddNewWellInfoActivity){ //新建well
           apiClient.api.addWellInfo(wellInfo.wellID,
               wellInfo.devID,
               wellInfo.cezhanID,
@@ -120,6 +122,15 @@ public class MaintainModifyFragment extends Fragment {
               new Callback<WellDetail[]>() {
                 @Override public void success(WellDetail[] wellDetail, Response response) {
                   Log.e(TAG, "新更新成功,status:" + wellDetail);
+                  if(wellDetail != null && wellDetail.length > 0){
+
+                    Intent intent = new Intent(MaintainModifyFragment.this.getContext(),
+                        MaintainActivity.class);
+                    intent.putExtra(Constant.MAINTAIN_QUERY_DATA,wellDetail[0]);
+                    startActivity(intent);
+                    getActivity().finish();
+                  }
+
                 }
 
                 @Override public void failure(RetrofitError error) {
@@ -150,6 +161,9 @@ public class MaintainModifyFragment extends Fragment {
 
               new Callback<WellDetail[]>() {
                 @Override public void success(WellDetail[] wellDetail, Response response) {
+
+                  //TODO 修改之后展示新的数据，这个需要在这个页面和查询页面都更新
+
                   Log.e(TAG, "更新成功,status:" + wellDetail);
                 }
 
