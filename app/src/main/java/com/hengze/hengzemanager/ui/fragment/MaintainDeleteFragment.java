@@ -57,7 +57,7 @@ public class MaintainDeleteFragment extends Fragment {
         final String wellName = getArguments().getString(Constant.WELL_NAME);
 
         deleteWellId.setText(wellID != null ? wellID : "获取数据失败");
-        deleteWellName.setText(wellID != null ? wellName : "获取数据失败");
+        deleteWellName.setText(wellName != null ? wellName : "获取数据失败");
 
         deleteWellInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,5 +118,9 @@ public class MaintainDeleteFragment extends Fragment {
             spotsDialog.dismiss();
             spotsDialog = null;
         }
+    }
+
+    public void update(String wellName){
+        deleteWellName.setText(wellName != null ? wellName : "获取数据失败");
     }
 }

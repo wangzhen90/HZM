@@ -53,10 +53,14 @@ public class MaintainQueryFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        StringBuilder stringBuilder = new StringBuilder();
         detail = (WellDetail) getArguments().getSerializable(Constant.MAINTAIN_QUERY_DATA);
 
+        setInfo();
 
+    }
+
+    private void setInfo() {
+        StringBuilder stringBuilder = new StringBuilder();
         if (detail != null) {
             stringBuilder.append(detail.managerName + "\n");
             stringBuilder.append(detail.managerTel + "\n");
@@ -78,7 +82,7 @@ public class MaintainQueryFragment extends Fragment {
             stringBuilder.append(detail.netType + "\n");
             stringBuilder.append(detail.simID + "\n");
             stringBuilder.append(detail.remark + "\n");
-
+            if(result != null)
             result.setText(stringBuilder);
 //            resultTag.setOnClickListener(new View.OnClickListener() {
 //                @Override
@@ -89,7 +93,6 @@ public class MaintainQueryFragment extends Fragment {
 //            });
 
         }
-
     }
 
     @Override
@@ -134,4 +137,11 @@ public class MaintainQueryFragment extends Fragment {
     //    });
     //
     //}
+
+
+   public void update(WellDetail detail){
+       this.detail = detail;
+       setInfo();
+
+   }
 }

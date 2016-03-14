@@ -54,7 +54,7 @@ public class MaintainFragment extends Fragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
         well_id = (EditText) view.findViewById(R.id.water_well_id);
         query = (TextView) view.findViewById(R.id.query);
-        well_id.setText("0994010101002");
+        well_id.setText("0994010301008");
         query.setOnClickListener(this);
     }
 

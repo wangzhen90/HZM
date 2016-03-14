@@ -200,7 +200,10 @@ public class MaintainModifyFragment extends Fragment {
                                 public void success(WellDetail[] wellDetail, Response response) {
                                     hideDialog();
                                     //TODO 修改之后展示新的数据，这个需要在这个页面和查询页面都更新
-
+                                    if(wellDetail != null && wellDetail.length > 0){
+                                      setWellInfo(wellDetail[0]);
+                                      ((MaintainActivity)getContext()).updateQuery(wellDetail[0]);
+                                    }
                                     Log.e(TAG, "更新成功,status:" + wellDetail);
                                 }
 
@@ -312,9 +315,11 @@ public class MaintainModifyFragment extends Fragment {
         @Override
         public void onLocationChanged(AMapLocation aMapLocation) {
             if (aMapLocation.getErrorCode() == 0) {
+
                 //定位成功回调信息，设置相关消息
                 lat.setText(aMapLocation.getLatitude() + "");
                 lon.setText(aMapLocation.getLongitude() + "");
+                stopLocation();
             } else {
                 //显示错误信息ErrCode是错误码，errInfo是错误信息，详见错误码表。
                 Log.e("AmapError", "location Error, ErrCode:" + aMapLocation.getErrorCode() + ", errInfo:"
