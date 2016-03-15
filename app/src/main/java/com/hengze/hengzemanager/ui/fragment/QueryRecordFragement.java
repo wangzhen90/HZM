@@ -87,10 +87,26 @@ public class QueryRecordFragement extends Fragment implements View.OnClickListen
                             @Override
                             public void success(ArrayList<CardConsumeInfo> cardConsumeInfos, Response response) {
                                 hideDialog();
-                                if (cardConsumeInfos == null || cardConsumeInfos.size() == 0) {
+//                                if (cardConsumeInfos == null || cardConsumeInfos.size() == 0) {
+//
+//                                    ToastUtils.showToast("未查询到数据");
+//                                    return;
+//                                }
+                                cardConsumeInfos = new ArrayList<CardConsumeInfo>();
+                                for(int i = 0; i <10; i++){
+                                    CardConsumeInfo info = new CardConsumeInfo();
+                                    info.cardID = "111";
+                                    info.phone = "17710119198";
+                                    info.userAddress = "甘肃武威";
+                                    info.userName = "admin";
+                                    info.wellName = "测试机井";
+                                    info.endTime = "2016-0" + i + "-10 10:30:20";
+                                    info.startTime = "2016-0" + i + "-10 10:30:20";
+                                    info.useWater = "10";
+                                    info.startWater = "20";
+                                    info.endWater= "20";
 
-                                    ToastUtils.showToast("未查询到数据");
-                                    return;
+                                    cardConsumeInfos.add(info);
                                 }
 
                                 Log.e(TAG, "查询用水量成功,status:" + cardConsumeInfos.size());
@@ -122,10 +138,26 @@ public class QueryRecordFragement extends Fragment implements View.OnClickListen
                             public void success(ArrayList<CardVoucherInfo> cardVoucherInfos, Response response) {
                                 hideDialog();
                                 Log.e(TAG, "查询充值记录成功,status:" + cardVoucherInfos.size());
-                                if (cardVoucherInfos == null || cardVoucherInfos.size() == 0) {
-
-                                    ToastUtils.showToast("未查询到数据");
-                                    return;
+//                                if (cardVoucherInfos == null || cardVoucherInfos.size() == 0) {
+//
+//                                    ToastUtils.showToast("未查询到数据");
+//                                    return;
+//                                }
+                                //测试数据
+                                cardVoucherInfos = new ArrayList<CardVoucherInfo>();
+                                for (int i = 0; i < 10; i++) {
+                                    CardVoucherInfo info = new CardVoucherInfo();
+                                    info.autoID = "1111";
+                                    info.cardID = "1111";
+                                    info.cdeFee = "1111";
+                                    info.cdeWater = "1111";
+                                    info.denFee = "1111";
+                                    info.denLeftWater = "1111";
+                                    info.operaTime = "2016-0" + i + "-10 10:30:20";
+                                    info.operator = "1111";
+                                    info.state = "关闭";
+                                    info.wellName = "测试机井" + i;
+                                    cardVoucherInfos.add(info);
                                 }
                                 toVoucherInfoDetail(cardVoucherInfos);
                             }

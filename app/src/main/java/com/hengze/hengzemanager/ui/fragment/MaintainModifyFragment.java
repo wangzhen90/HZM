@@ -1,16 +1,8 @@
 package com.hengze.hengzemanager.ui.fragment;
 
-import android.content.Context;
 import android.content.Intent;
-import android.location.Criteria;
-import android.location.GpsSatellite;
-import android.location.GpsStatus;
-import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
-import android.location.LocationProvider;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.util.Log;
@@ -21,9 +13,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
@@ -31,19 +20,16 @@ import com.amap.api.location.AMapLocationListener;
 import com.hengze.hengzemanager.Constant;
 import com.hengze.hengzemanager.R;
 import com.hengze.hengzemanager.Utils.DateUtil;
-import com.hengze.hengzemanager.Utils.ToastUtils;
 import com.hengze.hengzemanager.modle.WellDetail;
-import com.hengze.hengzemanager.modle.WellInfo;
 import com.hengze.hengzemanager.net.ApiClient;
 import com.hengze.hengzemanager.ui.activity.AddNewWellInfoActivity;
-import com.hengze.hengzemanager.ui.activity.MainActivity;
 import com.hengze.hengzemanager.ui.activity.MaintainActivity;
 import com.hengze.hengzemanager.ui.widget.pickview.TimePopupWindow;
 
 import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import dmax.dialog.SpotsDialog;
 import retrofit.Callback;
 import retrofit.RetrofitError;
@@ -96,6 +82,10 @@ public class MaintainModifyFragment extends Fragment {
     TextView commit;
     static final String TAG = MaintainModifyFragment.class.getSimpleName();
     public TimePopupWindow timePopupWindow;
+    @Bind(R.id.circle)
+    EditText circle;
+    @Bind(R.id.yc)
+    EditText yc;
     private LocationManager lm;
 
     public MaintainModifyFragment() {
@@ -150,7 +140,8 @@ public class MaintainModifyFragment extends Fragment {
                             wellInfo.netType,
                             wellInfo.simID,
                             wellInfo.remark,
-
+                            wellInfo.circle + "",
+                            wellInfo.yc + "",
                             new Callback<WellDetail[]>() {
                                 @Override
                                 public void success(WellDetail[] wellDetail, Response response) {
@@ -186,7 +177,7 @@ public class MaintainModifyFragment extends Fragment {
                             wellInfo.waterDeep,
                             wellInfo.waterQuality,
                             wellInfo.pumpPower + "",
-                            wellInfo.perWtOut,
+                            wellInfo.perWtOut + "",
                             wellInfo.perEleOut,
                             wellInfo.yearNumber,
                             wellInfo.managerName,
@@ -194,13 +185,18 @@ public class MaintainModifyFragment extends Fragment {
                             wellInfo.netType,
                             wellInfo.simID,
                             wellInfo.remark,
+                            wellInfo.circle + "",
+                            wellInfo.yc + "",
 
                             new Callback<WellDetail[]>() {
                                 @Override
                                 public void success(WellDetail[] wellDetail, Response response) {
                                     hideDialog();
                                     //TODO 修改之后展示新的数据，这个需要在这个页面和查询页面都更新
-
+                                    if (wellDetail != null && wellDetail.length > 0) {
+                                        setWellInfo(wellDetail[0]);
+                                        ((MaintainActivity) getContext()).updateQuery(wellDetail[0]);
+                                    }
                                     Log.e(TAG, "更新成功,status:" + wellDetail);
                                 }
 
@@ -266,6 +262,8 @@ public class MaintainModifyFragment extends Fragment {
         remark.setText(info.remark);
         managerName.setText(info.managerName);
         managerTel.setText(info.managerTel);
+        circle.setText(info.circle + "");
+        yc.setText(info.yc + "");
 
         initLocation();
     }
@@ -291,6 +289,8 @@ public class MaintainModifyFragment extends Fragment {
         wellInfo.remark = remark.getText().toString();
         wellInfo.managerName = managerName.getText().toString();
         wellInfo.managerTel = managerTel.getText().toString();
+        wellInfo.circle = Double.valueOf(circle.getText().toString());
+        wellInfo.yc = Double.valueOf(yc.getText().toString());
 
         return wellInfo;
     }
@@ -312,9 +312,11 @@ public class MaintainModifyFragment extends Fragment {
         @Override
         public void onLocationChanged(AMapLocation aMapLocation) {
             if (aMapLocation.getErrorCode() == 0) {
+
                 //定位成功回调信息，设置相关消息
                 lat.setText(aMapLocation.getLatitude() + "");
                 lon.setText(aMapLocation.getLongitude() + "");
+                stopLocation();
             } else {
                 //显示错误信息ErrCode是错误码，errInfo是错误信息，详见错误码表。
                 Log.e("AmapError", "location Error, ErrCode:" + aMapLocation.getErrorCode() + ", errInfo:"

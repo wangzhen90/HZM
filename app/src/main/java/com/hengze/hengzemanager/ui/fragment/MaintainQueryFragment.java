@@ -53,10 +53,14 @@ public class MaintainQueryFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        StringBuilder stringBuilder = new StringBuilder();
         detail = (WellDetail) getArguments().getSerializable(Constant.MAINTAIN_QUERY_DATA);
 
+        setInfo();
 
+    }
+
+    private void setInfo() {
+        StringBuilder stringBuilder = new StringBuilder();
         if (detail != null) {
             stringBuilder.append(detail.managerName + "\n");
             stringBuilder.append(detail.managerTel + "\n");
@@ -68,6 +72,8 @@ public class MaintainQueryFragment extends Fragment {
             stringBuilder.append(detail.lnt + "\n");//纬度
             stringBuilder.append(detail.buildYear + "\n");//创建时间
             stringBuilder.append(detail.qsxkzh + "\n");//
+            stringBuilder.append(detail.circle + "\n");
+            stringBuilder.append(detail.yc + "\n");
             stringBuilder.append(detail.wellDeep + "\n");//机井深度
             stringBuilder.append(detail.waterDeep + "\n");//水深度
             stringBuilder.append(detail.waterQuality + "\n");//水质
@@ -79,6 +85,7 @@ public class MaintainQueryFragment extends Fragment {
             stringBuilder.append(detail.simID + "\n");
             stringBuilder.append(detail.remark + "\n");
 
+            if(result != null)
             result.setText(stringBuilder);
 //            resultTag.setOnClickListener(new View.OnClickListener() {
 //                @Override
@@ -89,7 +96,6 @@ public class MaintainQueryFragment extends Fragment {
 //            });
 
         }
-
     }
 
     @Override
@@ -134,4 +140,11 @@ public class MaintainQueryFragment extends Fragment {
     //    });
     //
     //}
+
+
+   public void update(WellDetail detail){
+       this.detail = detail;
+       setInfo();
+
+   }
 }

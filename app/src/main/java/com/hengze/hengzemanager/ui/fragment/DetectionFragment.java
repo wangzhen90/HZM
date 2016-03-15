@@ -110,7 +110,7 @@ public class DetectionFragment extends Fragment {
     });
   }
 
-  private void query(String newWellId) {
+  private void query(final String newWellId) {
     ApiClient apiClient = ApiClient.get();
 
     apiClient.api.queryInfoByArea(newWellId, new Callback<ArrayList<WellRt>>() {
@@ -118,6 +118,7 @@ public class DetectionFragment extends Fragment {
         Log.e("test", "监测查询成功,info:" + infos.size());
         Intent intent = new Intent(getActivity(), DetectionShowActivity.class);
         intent.putExtra(Constant.DETECTION_DATA, infos);
+        intent.putExtra(Constant.AREA_ID,newWellId);
         getContext().startActivity(intent);
       }
 

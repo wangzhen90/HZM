@@ -6,8 +6,8 @@ import java.util.Date;
 /**
  * Created by dell on 2016/1/27.
  */
-public class WellDetail implements Serializable{
-       public String wellID;//机井名称
+public class WellDetail implements Serializable {
+    public String wellID;//机井名称
     public String devID;//设备号
     public String cezhanID;//DTU编号
     public String wellName;//机井名称
@@ -30,5 +30,7 @@ public class WellDetail implements Serializable{
 
     public String remark;//
 
+    public double circle;//管径
+    public double yc;//扬程
 
 }

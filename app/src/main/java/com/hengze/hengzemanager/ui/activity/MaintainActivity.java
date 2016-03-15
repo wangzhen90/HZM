@@ -50,7 +50,6 @@ public class MaintainActivity extends FragmentActivity implements View.OnClickLi
     @Bind(R.id.title_content)
     TextView titleContent;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +60,7 @@ public class MaintainActivity extends FragmentActivity implements View.OnClickLi
         getData();
         manager = getSupportFragmentManager();
         initOnclick();
+        viewpager.setOffscreenPageLimit(4);
         viewpager.setAdapter(new MaintainAdapter(manager));
     }
 
@@ -188,15 +188,12 @@ public class MaintainActivity extends FragmentActivity implements View.OnClickLi
     void showDialog(String msg) {
         if (msg == null) msg = "加载中...";
 
-
         if (spotsDialog == null) {
             spotsDialog = new SpotsDialog(this, msg);
             spotsDialog.show();
         } else {
             spotsDialog.show();
         }
-
-
     }
 
     void hideDialog() {
@@ -206,4 +203,17 @@ public class MaintainActivity extends FragmentActivity implements View.OnClickLi
         }
     }
 
+    public void updateQuery(WellDetail detail) {
+        if (queryFragment != null) {
+            queryFragment.update(detail);
+        }
+
+        if (deleteFragment != null) {
+            deleteFragment.update(detail.wellName);
+        }
+        if (viewpager != null) {
+            viewpager.setCurrentItem(0);
+        }
+
+    }
 }

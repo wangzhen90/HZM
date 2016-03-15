@@ -70,18 +70,24 @@ public class LoginActivity extends FragmentActivity implements View.OnClickListe
               break;
             }
 
-            UserWrapper userWrapper = new UserWrapper(userName, password);
+//            UserWrapper userWrapper = new UserWrapper(userName, password);
 
-            ApiClient.get().api.login(userWrapper, new Callback<String>() {
+            ApiClient.get().api.login(userName,password, new Callback<String>() {
               @Override public void success(String status, Response response) {
                 Log.e(TAG, "登陆成功,status:" + status);
-                toMainPage();
+                if(status.equals("200")){
+                  toMainPage();
+                }else {
+                  ToastUtils.showToast("账号或密码错误");
+                }
               }
 
               @Override public void failure(RetrofitError error) {
                 Log.e(TAG, "登陆失败，error:" + error.getMessage() + ",kind:" + error.getKind());
               }
             });
+
+
 
             return true;
         }

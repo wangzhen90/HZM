@@ -9,7 +9,6 @@
     app:umanoDragView="@+id/detail"
     app:umanoScrollableView="@+id/listview"
     app:umanoInitialState="hidden"
-
     tools:context="com.hengze.hengzemanager.ui.activity.DetectionShowActivity"
     >
 
@@ -85,11 +84,17 @@
         android:background="@color/black"
 
         />
-    <ListView
-        android:id="@+id/listview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+      <android.support.v4.widget.SwipeRefreshLayout
+          android:id="@+id/swipe_refresh"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+          <ListView
+              android:id="@+id/listview"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              />
+      </android.support.v4.widget.SwipeRefreshLayout>
+
 
   </LinearLayout>
   <LinearLayout
