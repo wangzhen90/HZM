@@ -1,0 +1,134 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.hengze.hengzemanager.function.nfc.activity.NFCReadActivity"
+    >
+
+
+  <RelativeLayout
+      android:id="@+id/relativeLayoutWriteTagWriteBlock"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingLeft="5dp"
+      android:paddingRight="5dp"
+      >
+
+    <!-- Dummy for preventing EditTexts to get focus on
+    Activity startup -->
+    <LinearLayout
+        android:layout_width="0dip"
+        android:layout_height="0dip"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        />
+
+    <TextView
+        android:id="@+id/textViewReadTagSector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editTextWriteTagSector"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:padding="5dp"
+        android:text="扇区"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        />
+
+    <EditText
+        android:id="@+id/editTextReadTagSector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="5dp"
+        android:layout_toRightOf="@id/textViewReadTagSector"
+        android:gravity="center_horizontal"
+        android:inputType="number"
+        android:maxLength="2"
+        android:minEms="3"
+        />
+
+    <TextView
+        android:id="@+id/textViewWriteTagHint1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/editTextReadTagSector"
+        android:layout_toRightOf="@id/editTextReadTagSector"
+        android:text="@string/text_starting_at_0"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        />
+
+    <TextView
+        android:id="@+id/textViewReadTagBlock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editTextReadTagBlock"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/textViewReadTagSector"
+        android:padding="5dp"
+        android:text="块"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        />
+
+    <EditText
+        android:id="@+id/editTextReadTagBlock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTextReadTagSector"
+        android:layout_below="@id/editTextReadTagSector"
+        android:layout_marginRight="5dp"
+        android:gravity="center_horizontal"
+        android:inputType="number"
+        android:maxLength="2"
+        android:minEms="3"
+        />
+
+    <TextView
+        android:id="@+id/textViewReadTagHint2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/editTextReadTagBlock"
+        android:layout_toRightOf="@id/editTextReadTagBlock"
+        android:text="@string/text_starting_at_0"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        />
+
+    <CheckBox
+        android:id="@+id/keyA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewReadTagHint2"
+        android:text="A密码"
+        android:checked="true"
+        />
+
+    <CheckBox
+        android:id="@+id/keyB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewReadTagHint2"
+        android:layout_toRightOf="@+id/keyA"
+        android:text="B密码"
+        />
+    <Button
+        android:id="@+id/buttonWriteTagBlock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/keyB"
+        android:onClick="onReadBlock"
+        android:text="开始读卡"
+        />
+  </RelativeLayout>
+
+  <TextView
+      android:id="@+id/result"
+      android:text="请勿将卡挪开"
+      android:layout_margin="20dp"
+      android:textSize="15dp"
+      android:gravity="center"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      />
+
+</LinearLayout>
