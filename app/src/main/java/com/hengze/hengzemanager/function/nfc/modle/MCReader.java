@@ -862,6 +862,7 @@ public class MCReader {
             }
         } catch (IOException e) {
             Log.d(LOG_TAG, "Error authenticating with tag.");
+            ToastUtils.showToast("卡丢失，请重新刷卡");
         }
         return false;
     }

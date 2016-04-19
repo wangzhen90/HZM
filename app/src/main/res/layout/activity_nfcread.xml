@@ -111,11 +111,36 @@
         android:layout_toRightOf="@+id/keyA"
         android:text="B密码"
         />
+
+      <TextView
+          android:id="@+id/key_tv"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+
+          android:layout_alignParentLeft="true"
+          android:layout_below="@id/keyA"
+          android:padding="5dp"
+          android:text="密码："
+          android:textAppearance="?android:attr/textAppearanceMedium" />
+
+      <EditText
+          android:id="@+id/key_et"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_toRightOf="@id/key_tv"
+          android:layout_below="@id/keyA"
+          android:layout_marginRight="5dp"
+          android:gravity="center_horizontal"
+
+          android:maxLength="12"
+          android:hint="6个字节，比如FFFFFFFFFFFF"
+          />
+
     <Button
         android:id="@+id/buttonWriteTagBlock"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/keyB"
+        android:layout_below="@+id/key_et"
         android:onClick="onReadBlock"
         android:text="开始读卡"
         />

@@ -4,13 +4,11 @@ import android.content.Intent;
 import android.nfc.TagLostException;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.SparseArray;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -29,6 +27,7 @@ public class NFCReadActivity extends NFCBasicActivity {
   @Bind(R.id.keyA) CheckBox keyA;
   @Bind(R.id.keyB) CheckBox keyB;
   String result;
+  @Bind(R.id.key_et) EditText keyEt;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -68,9 +67,14 @@ public class NFCReadActivity extends NFCBasicActivity {
 
     final int sectorIndex = Integer.valueOf(editTextReadTagSector.getText().toString());
     final int blockIndex = Integer.valueOf(editTextReadTagBlock.getText().toString());
-    final byte[] key =
-        { (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF };
+    byte[] keyNow = { (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF };
 
+    String keyString = keyEt.getText().toString();
+    if (keyString != null && keyString.trim().length() == 12) {
+      keyNow = Common.hexStringToByteArray(keyString);
+    }
+
+    final byte[] key = keyNow;
     final boolean useAsKeyB = keyB.isChecked();
     if (reader == null) {
       return;

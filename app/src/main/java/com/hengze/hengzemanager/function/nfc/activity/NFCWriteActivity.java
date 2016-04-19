@@ -1,6 +1,7 @@
 package com.hengze.hengzemanager.function.nfc.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -22,6 +23,7 @@ public class NFCWriteActivity extends NFCBasicActivity {
   @Bind(R.id.keyA) CheckBox keyA;
   @Bind(R.id.keyB) CheckBox keyB;
   @Bind(R.id.buttonWriteTagBlock) Button buttonWriteTagBlock;
+  @Bind(R.id.key_et) EditText keyEt;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -42,10 +44,9 @@ public class NFCWriteActivity extends NFCBasicActivity {
 
     buttonWriteTagBlock.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
-       writeBlock();
+        writeBlock();
       }
     });
-
   }
 
   private void writeBlock() {
@@ -56,23 +57,26 @@ public class NFCWriteActivity extends NFCBasicActivity {
     int sector = Integer.parseInt(editTextWriteTagSector.getText().toString());
     int block = Integer.parseInt(editTextWriteTagBlock.getText().toString());
     int result = -1;
-    final byte[] key =
+     byte[] key =
         { (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF };
 
+    String keyString = keyEt.getText().toString();
+    if(keyString != null && keyString.trim().length() == 12){
+      key = Common.hexStringToByteArray(keyString);
+    }
+
     String data = editTextWriteTagData.getText().toString();
-    if(data == null || data.trim().length() != 32 ){
+    if (data == null || data.trim().length() != 32) {
       ToastUtils.showToast("写入数据必须为16个字节");
     }
 
     final boolean useAsKeyB = keyB.isChecked();
     if (key != null) {
-      result = reader.writeBlock(sector, block,
-          Common.hexStringToByteArray(data),
-          key, useAsKeyB);
+      result = reader.writeBlock(sector, block, Common.hexStringToByteArray(data), key, useAsKeyB);
     }
     // Error while writing? Maybe tag has default factory settings ->
     // try to write with key a (if there is one).
-    if (result == -1 ) {
+    if (result == -1) {
       //result = reader.writeBlock(sector, block,
       //    Common.hexStringToByteArray(mDataText.getText().toString()),
       //    keys[0], false);
@@ -89,10 +93,7 @@ public class NFCWriteActivity extends NFCBasicActivity {
         ToastUtils.showToast("写卡失败");
         return;
     }
-    Toast.makeText(this, R.string.info_write_successful,
-        Toast.LENGTH_LONG).show();
+    Toast.makeText(this, R.string.info_write_successful, Toast.LENGTH_LONG).show();
     finish();
   }
-
-
 }

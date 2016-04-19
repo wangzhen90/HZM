@@ -147,7 +147,6 @@
             android:layout_below="@id/keyA"
             android:layout_marginRight="5dp"
             android:gravity="center_horizontal"
-            android:inputType="number"
             android:maxLength="12"
             android:hint="6个字节，比如FFFFFFFFFFFF"
             />
