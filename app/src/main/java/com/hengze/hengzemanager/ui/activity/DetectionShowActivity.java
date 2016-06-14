@@ -36,8 +36,7 @@ public class DetectionShowActivity extends FragmentActivity {
     TextView titleContent;
     @Bind(R.id.listview)
     ListView listview;
-    @Bind(R.id.detail)
-    LinearLayout detail;
+
     DetectionAdapter adapter;
     @Bind(R.id.expand_view)
     ImageView expandView;
@@ -134,11 +133,15 @@ public class DetectionShowActivity extends FragmentActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 setDetail(adapter.getItem(position));
-                if (slidingLayout.getPanelState() == SlidingUpPanelLayout.PanelState.COLLAPSED
-                        || slidingLayout.getPanelState() == SlidingUpPanelLayout.PanelState.HIDDEN) {
-                    slidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.ANCHORED);
-                } else if (slidingLayout.getPanelState() == SlidingUpPanelLayout.PanelState.EXPANDED) {
-                    slidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.HIDDEN);
+//                if (slidingLayout.getPanelState() == SlidingUpPanelLayout.PanelState.COLLAPSED
+//                        || slidingLayout.getPanelState() == SlidingUpPanelLayout.PanelState.HIDDEN) {
+//                    slidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.ANCHORED);
+//                } else if (slidingLayout.getPanelState() == SlidingUpPanelLayout.PanelState.EXPANDED) {
+//                    slidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.HIDDEN);
+//                }
+
+                if (slidingLayout.getPanelState() != SlidingUpPanelLayout.PanelState.EXPANDED) {
+                    slidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.EXPANDED);
                 }
             }
         });

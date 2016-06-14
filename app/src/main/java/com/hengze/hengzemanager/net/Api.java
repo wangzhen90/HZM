@@ -112,6 +112,7 @@ public interface Api {
                         Callback<WellDetail[]> callback);
 
     //http://118.183.190.176:8082/HzmoFrame/show.MonitorAn?orgCode=0994
+//    http://218.31.50.25:8083/HzxjFrame/show.MonitorAn?orgCode=0994010101
     //监测模块查询信息
     @GET("/show.MonitorAn")
     void queryInfoByArea(@Query("orgCode") String orgCode, Callback<ArrayList<WellRt>> callback);
