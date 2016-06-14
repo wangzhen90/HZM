@@ -144,235 +144,241 @@
             android:layout_height="1px"
             android:background="@color/black" />
 
-        <ScrollView
+        <ListView
+            android:id="@+id/listview_detail"
             android:layout_width="match_parent"
-            android:layout_height="150dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+            android:layout_height="200dp"/>
 
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:background="@color/gray_bg"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+        <!--<ScrollView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="150dp">-->
 
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:text="机井编号:"
-                        android:textSize="13dp" />
-
-                    <TextView
-                        android:id="@+id/well_id"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:ellipsize="end"
-                        android:singleLine="true"
-                        android:text="机井编号:"
-                        android:textSize="13dp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:text="机井名称:"
-                        android:textSize="13dp" />
-
-                    <TextView
-                        android:id="@+id/well_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:ellipsize="end"
-                        android:singleLine="true"
-                        android:text="机井编号:"
-                        android:textSize="13dp" />
-
-                </LinearLayout>
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="vertical">-->
 
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:background="@color/gray_bg"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="25dp"-->
+                    <!--android:background="@color/gray_bg"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:orientation="horizontal">-->
 
-                    <TextView
+                    <!--<TextView-->
 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:text="水表底数:"
-                        android:textSize="13dp" />
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="20dp"-->
+                        <!--android:text="机井编号:"-->
+                        <!--android:textSize="13dp" />-->
 
-                    <TextView
-                        android:id="@+id/year_number"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:ellipsize="end"
-                        android:singleLine="true"
-                        android:text="机井编号:"
-                        android:textSize="13dp" />
+                    <!--<TextView-->
+                        <!--android:id="@+id/well_id"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="20dp"-->
+                        <!--android:ellipsize="end"-->
+                        <!--android:singleLine="true"-->
+                        <!--android:text="机井编号:"-->
+                        <!--android:textSize="13dp" />-->
 
-                </LinearLayout>
+                <!--</LinearLayout>-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="25dp"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:orientation="horizontal">-->
 
-                    <TextView
+                    <!--<TextView-->
 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:text="剩余水量:"
-                        android:textSize="13dp" />
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="20dp"-->
+                        <!--android:text="机井名称:"-->
+                        <!--android:textSize="13dp" />-->
 
-                    <TextView
-                        android:id="@+id/left_wt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:ellipsize="end"
-                        android:singleLine="true"
-                        android:text="机井编号:"
-                        android:textSize="15dp" />
+                    <!--<TextView-->
+                        <!--android:id="@+id/well_name"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="20dp"-->
+                        <!--android:ellipsize="end"-->
+                        <!--android:singleLine="true"-->
+                        <!--android:text="机井编号:"-->
+                        <!--android:textSize="13dp" />-->
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:background="@color/gray_bg"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:text="总  用  量:"
-                        android:textSize="13dp" />
-
-                    <TextView
-                        android:id="@+id/total_use"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:ellipsize="end"
-                        android:singleLine="true"
-                        android:text="机井编号:"
-                        android:textSize="13dp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:text="状        态:"
-                        android:textSize="13dp" />
-
-                    <TextView
-                        android:id="@+id/status"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:ellipsize="end"
-                        android:singleLine="true"
-                        android:text="机井编号:"
-                        android:textSize="13dp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:background="@color/gray_bg"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:text="网络状态:"
-                        android:textSize="13dp" />
-
-                    <TextView
-                        android:id="@+id/net_state"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:ellipsize="end"
-                        android:singleLine="true"
-                        android:text="机井编号:"
-                        android:textSize="13dp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:text="采集时间:"
-                        android:textSize="13dp" />
-
-                    <TextView
-                        android:id="@+id/collect_time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:ellipsize="end"
-                        android:singleLine="true"
-                        android:text="机井编号:"
-                        android:textSize="13dp" />
-
-                </LinearLayout>
+                <!--</LinearLayout>-->
 
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp" />
-            </LinearLayout>
-        </ScrollView>
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="25dp"-->
+                    <!--android:background="@color/gray_bg"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:orientation="horizontal">-->
+
+                    <!--<TextView-->
+
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="20dp"-->
+                        <!--android:text="水表底数:"-->
+                        <!--android:textSize="13dp" />-->
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/year_number"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="20dp"-->
+                        <!--android:ellipsize="end"-->
+                        <!--android:singleLine="true"-->
+                        <!--android:text="机井编号:"-->
+                        <!--android:textSize="13dp" />-->
+
+                <!--</LinearLayout>-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="25dp"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:orientation="horizontal">-->
+
+                    <!--<TextView-->
+
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="20dp"-->
+                        <!--android:text="剩余水量:"-->
+                        <!--android:textSize="13dp" />-->
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/left_wt"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="20dp"-->
+                        <!--android:ellipsize="end"-->
+                        <!--android:singleLine="true"-->
+                        <!--android:text="机井编号:"-->
+                        <!--android:textSize="15dp" />-->
+
+                <!--</LinearLayout>-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="25dp"-->
+                    <!--android:background="@color/gray_bg"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:orientation="horizontal">-->
+
+                    <!--<TextView-->
+
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="20dp"-->
+                        <!--android:text="总  用  量:"-->
+                        <!--android:textSize="13dp" />-->
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/total_use"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="20dp"-->
+                        <!--android:ellipsize="end"-->
+                        <!--android:singleLine="true"-->
+                        <!--android:text="机井编号:"-->
+                        <!--android:textSize="13dp" />-->
+
+                <!--</LinearLayout>-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="25dp"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:orientation="horizontal">-->
+
+                    <!--<TextView-->
+
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="20dp"-->
+                        <!--android:text="状        态:"-->
+                        <!--android:textSize="13dp" />-->
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/status"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="20dp"-->
+                        <!--android:ellipsize="end"-->
+                        <!--android:singleLine="true"-->
+                        <!--android:text="机井编号:"-->
+                        <!--android:textSize="13dp" />-->
+
+                <!--</LinearLayout>-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="25dp"-->
+                    <!--android:background="@color/gray_bg"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:orientation="horizontal">-->
+
+                    <!--<TextView-->
+
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="20dp"-->
+                        <!--android:text="网络状态:"-->
+                        <!--android:textSize="13dp" />-->
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/net_state"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="20dp"-->
+                        <!--android:ellipsize="end"-->
+                        <!--android:singleLine="true"-->
+                        <!--android:text="机井编号:"-->
+                        <!--android:textSize="13dp" />-->
+
+                <!--</LinearLayout>-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="25dp"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:orientation="horizontal">-->
+
+                    <!--<TextView-->
+
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="20dp"-->
+                        <!--android:text="采集时间:"-->
+                        <!--android:textSize="13dp" />-->
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/collect_time"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="20dp"-->
+                        <!--android:ellipsize="end"-->
+                        <!--android:singleLine="true"-->
+                        <!--android:text="机井编号:"-->
+                        <!--android:textSize="13dp" />-->
+
+                <!--</LinearLayout>-->
+
+
+                <!--<View-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="20dp" />-->
+            <!--</LinearLayout>-->
+        <!--</ScrollView>-->
     </LinearLayout>
 
 
