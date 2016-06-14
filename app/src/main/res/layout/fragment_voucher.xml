@@ -1,20 +1,31 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.hengze.hengzemanager.ui.fragment.VoucherFragment"
+    android:orientation="vertical"
     >
 
   <!-- TODO: Update blank fragment layout -->
-  <TextView
-
-      android:layout_width="wrap_content"
+  <Button
+      android:id="@+id/read_card"
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="暂未开通"
-      android:textSize="30dp"
-      android:layout_gravity="center"
+      android:layout_marginTop="200dp"
+      android:text="读取IC卡信息"
+      android:textSize="13dp"
+      android:gravity="center"
+      />
+
+  <Button
+      android:id="@+id/wirte_card"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="20dp"
+      android:text="写入IC卡信息"
+      android:textSize="13dp"
+      android:gravity="center"
       />
 
 
-
-</FrameLayout>
+</LinearLayout>
